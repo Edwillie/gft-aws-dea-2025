@@ -23,6 +23,7 @@ A categorização dos dados em três tipos principais é essencial para entender
     - **PDFs escaneados**, gravações de chamadas, etc.        
 <div style="page-break-after: always;"></div>
 ### 3. *Dados Semiestruturados*
+
 - **Definição:** Dados com alguma organização interna (tags, delimitadores, etc.), mas não em formato relacional tradicional.    
 - **Características:**    
     - Possuem estrutura parcial, normalmente hierárquica.        
