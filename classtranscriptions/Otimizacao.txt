@@ -1,0 +1,147 @@
+Instrutor: Vamos também fazer
+
+uma rápida revisão das técnicas de otimização do desempenho
+
+do banco de dados, algumas ferramentas básicas para melhorar o desempenho dos bancos de dados.
+
+A ferramenta número um é ter os índices corretos, certo?
+
+Portanto, você nunca deve fazer uma varredura completa
+
+da tabela, se puder evitá-la.
+
+Se você precisa pesquisar em cada linha
+
+dos seus dados para encontrar o que precisa, está fazendo
+
+isso errado, o que significa que precisa de um índice e precisa
+
+analisar quais são as suas consultas e certificar-se
+
+de que entende quais índices precisa criar para garantir que possa acessar
+
+rapidamente os dados de que precisa.
+
+A indexação também pode ser uma ferramenta
+
+útil para reforçar a exclusividade e a integridade dos dados.
+
+Se você tiver conflitos
+
+ao tentar indexar seus dados, isso poderá alertá-lo
+
+sobre problemas que você realmente
+
+precisa resolver e que,
+
+de outra forma, talvez não soubesse.
+
+Outra técnica de otimização é o particionamento.
+
+Portanto, se você tiver uma grande quantidade
+
+de dados, poderá reduzir a quantidade de dados digitalizados
+
+particionando-os com base em diferentes elementos que podem ser usados para
+
+fazer consultas.
+
+Por exemplo, talvez você tenha partições por data,
+
+você sabe que vai procurar informações
+
+talvez apenas do último mês, normalmente.
+
+Portanto, ao particionar os dados por mês, você pode
+
+reduzir a quantidade de informações que precisa examinar,
+
+caso seja necessário fazer uma varredura de tabela
+
+completa para um mês inteiro de dados.
+
+Ele também pode ajudar no gerenciamento do ciclo de vida dos dados.
+
+Portanto, se você estiver particionando com base no tempo,
+
+isso significa que é muito fácil pegar essas partições
+
+mais antigas e movê-las para soluções de armazenamento mais baratas ou talvez
+
+até mesmo excluí-las ao longo do tempo para economizar nos custos de armazenamento e
+
+talvez também nos requisitos de conformidade.
+
+Ele também pode permitir o processamento paralelo.
+
+Portanto, se você tiver seus dados particionados
+
+de forma lógica, talvez possa processá-los em paralelo, uma partição
+
+ao lado da outra, certo?
+
+Portanto, o particionamento
+
+também é uma otimização de desempenho muito importante.
+
+A compactação também é importante, pois
+
+pode acelerar a transferência de dados e reduzir
+
+o armazenamento e as leituras de disco.
+
+Muitas vezes, os bancos de dados são prejudicados pela E/S do disco e, se
+
+esse for o caso, você deve certificar-se de que
+
+está armazenando os dados compactados.
+
+Alguns formatos de compactação comuns
+
+são GZIP, LZOP, BZIP2 e Zstandard.
+
+Esses são exemplos de formatos de compactação compatíveis
+
+com o Amazon Redshift, e todos eles vêm com várias
+
+compensações entre compactação
+
+e velocidade, de modo que você não quer
+
+passar de uma situação em que seu IO é limitado
+
+para um limite de CPU, porque seu formato
+
+de compactação era muito complicado.
+
+Portanto, talvez você tenha que fazer algumas concessões.
+
+Além disso, há a compactação colunar. Falamos
+
+anteriormente sobre o Parquet
+
+e o armazenamento de dados em formato colunar.
+
+Talvez você também queira compactar
+
+esses dados em um meio colunar.
+
+Isso pode ser muito mais eficiente,
+
+porque suas colunas estão todas no mesmo formato, o mesmo formato
+
+de dados, certo?
+
+E elas podem ter estruturas semelhantes,
+
+portanto, pode ser mais eficiente compactar essas informações do que compactar uma linha
+
+repleta de todos os tipos de informações diferentes.
+
+Então, novamente, uma revisão rápida
+
+da otimização do desempenho do banco de dados.
+
+A indexação, o particionamento e a compactação são as principais ferramentas para melhorar
+
+o desempenho das consultas ao banco de dados.

@@ -1,0 +1,200 @@
+Tutor: Vamos discutir também alguns
+
+conceitos-chave sobre validação de dados e perfil
+
+de dados para garantir que seus dados sejam bons.
+
+Isso, mais uma vez, é algo que o guia do exame destaca.
+
+Portanto, há algumas dimensões
+
+diferentes nas quais podemos pensar na validação de dados.
+
+Um deles é a integridade dos dados.
+
+Então, temos dados faltantes?
+
+E, em caso afirmativo, como estamos lidando com isso?
+
+Então, isso significa apenas que temos todos os dados que esperamos?
+
+Está tudo lá?
+
+Está faltando alguma parte essencial de nossos dados?
+
+Uma coisa muito fácil de verificar.
+
+Você sabe, é muito fácil calcular quantos campos
+
+estão faltando em uma determinada coluna.
+
+Qual é a sua contagem
+
+de nulos e que porcentagem de todos os seus dados isso representa,
+
+e isso está dentro dos seus requisitos aceitos ou não?
+
+Isso pode ser muito importante, certo?
+
+Imagine, por exemplo, que temos um conjunto
+
+de dados de salários de pessoas e queremos calcular
+
+o salário médio de algum subconjunto
+
+dessas pessoas.
+
+Se houver um monte de zeros porque
+
+as pessoas não informaram seus salários,
+
+isso reduzirá muito sua média, certo?
+
+Portanto, se você tiver dados faltantes
+
+e não estiver lidando com eles ou não estiver ciente deles,
+
+isso pode realmente levar a análises imprecisas
+
+e a pessoas tirando conclusões erradas dos seus dados.
+
+Portanto, é preciso pensar em como lidar com dados ausentes.
+
+Eu elimino as linhas que têm dados ausentes?
+
+Eu imputo esses dados de alguma forma
+
+e coloco algum tipo de dado de espaço reservado?
+
+É preciso pensar nisso com antecedência.
+
+Seus dados estão completos?
+
+E se não, o que posso fazer a respeito?
+
+Consistência de dados.
+
+Digamos que eu tenha dados sendo unidos a
+
+partir de fontes diferentes ou de tabelas diferentes.
+
+Esses dados estão sendo representados em um formato consistente?
+
+Portanto, podemos verificar isso com a validação entre campos, apenas
+
+comparando a aparência dos dados dessas
+
+diferentes fontes.
+
+Mas isso pode ser importante, certo?
+
+Então, por exemplo, vejamos este exemplo à direita, em que estamos
+
+analisando as classificações de filmes feitas pelas pessoas.
+
+E se tivermos uma tabela em que
+
+a classificação é de 1 a 5 estrelas e outra
+
+tabela em que é de 1 a 10 estrelas?
+
+Essas não são faixas de valores de classificação consistentes, certo?
+
+E se tentarmos combiná-los, podemos
+
+ter muita confusão e conclusões
+
+incorretas.
+
+Portanto, as pessoas que classificaram as coisas em uma escala
+
+de cinco estrelas e classificaram as coisas
+
+como cinco, podem parecer uma classificação muito ruim quando
+
+tentamos colocá-las em uma tabela diferente em que
+
+as classificações vão de 1 a 10.
+
+Esse é um exemplo de que a
+
+consistência é um problema em potencial.
+
+Além disso, a precisão dos dados, meus dados estão corretos?
+
+Você sabe se eu confio nele?
+
+Está correto, é confiável?
+
+Ele representa o que deveria fazer?
+
+É um pouco mais difícil testar isso, certo?
+
+Por exemplo, se você tiver alguma fonte de verdade
+
+básica com a qual possa compará-la, ótimo; caso
+
+contrário, você terá que se certificar de que ela
+
+seja aprovada em uma verificação de sanidade.
+
+A natureza geral e a distribuição desses dados correspondem
+
+ao que esperamos do mundo real ou não?
+
+Obviamente, isso é importante.
+
+Dados imprecisos levam a percepções imprecisas, resultados
+
+imprecisos e tomada de decisões imprecisas.
+
+Por fim, há a questão da integridade.
+
+Sabe, meus dados estão perdendo a validade com o tempo?
+
+Normalmente, isso se manifesta em uma relação entre diferentes
+
+tabelas de dados.
+
+Então, é para isso que servem as verificações de chaves estrangeiras, certo?
+
+E verificar a validade desses relacionamentos
+
+entre tabelas.
+
+Eles podem tender a ficar
+
+fora de sincronia se as coisas mudarem com o tempo.
+
+Mas, novamente, isso é importante.
+
+Você precisa garantir que os relacionamentos
+
+entre os elementos de dados sejam preservados, o que significa
+
+que seus dados permanecem confiáveis ao longo do tempo.
+
+Portanto, para a validação de dados e a criação de perfis,
+
+precisamos pensar na integridade dos dados.
+
+Tenho dados faltando?
+
+Consistência de dados.
+
+Meus dados estão sendo representados
+
+em um formato consistente em diferentes tabelas?
+
+Meus dados são precisos?
+
+E a integridade dos meus dados é boa?
+
+Estou perdendo minhas relações entre meus dados
+
+em tabelas diferentes ao longo do tempo?
+
+Isso é validação de dados e criação de
+
+perfil em poucas palavras.
+

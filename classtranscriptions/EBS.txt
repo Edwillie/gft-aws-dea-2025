@@ -1,0 +1,585 @@
+Instrutor: Bem-vindo a esta seção,
+
+na qual veremos as diferentes opções de armazenamento
+
+para instâncias do EC2.
+
+Portanto, primeiro, os mais importantes
+
+serão os volumes do EBS, então vamos definir o que eles são.
+
+Um volume EBS significa Elastic Block Store.
+
+É uma unidade de rede que você pode anexar às suas instâncias
+
+enquanto elas são executadas,
+
+e nós as usamos sem nem mesmo saber.
+
+Portanto, esses volumes EBS nos permitem manter os dados,
+
+mesmo depois que a instância é encerrada.
+
+E esse é o objetivo: podemos
+
+recriar uma instância e montar
+
+no mesmo volume EBS de antes e recuperar
+
+nossos dados.
+
+Isso é muito útil.
+
+Portanto, esses volumes EBS, no nível do CCP,
+
+só podem ser montados em uma instância de cada vez, certo?
+
+E quando você cria um volume EBS, ele é vinculado
+
+a uma zona de disponibilidade específica.
+
+Isso significa que você não pode
+
+ter um volume EBS criado, por exemplo, us-east-1a. Veremos isso no
+
+diagrama em um segundo.
+
+Então, o que você acha dos volumes do EBS?
+
+Bem, você pode pensar neles como pendrives de rede.
+
+Portanto, é um pendrive USB que pode ser retirado de um computador e colocado
+
+em outro computador, mas que, na
+
+verdade, não é colocado fisicamente em um computador.
+
+Ele é conectado por meio da rede.
+
+O recurso nos dá 30 GBs de armazenamento EBS gratuito
+
+do tipo Uso geral ou SSD ou Magnético por mês.
+
+E, neste curso, usaremos
+
+isso com os volumes GP2 a GP3.
+
+Agora vamos dar uma olhada nisso.
+
+Portanto, os volumes EBS são drivers
+
+de rede que não são uma unidade física, certo?
+
+Portanto, para se comunicar entre a instância e o volume
+
+do EBS, ele usará a rede.
+
+E como a rede é usada, pode
+
+haver um pouco de latência de um computador
+
+para chegar a outro servidor.
+
+Agora, os volumes EBS, por serem uma unidade de rede,
+
+podem ser desconectados de uma instância
+
+do EC2 e anexados a outra muito rapidamente.
+
+E isso o torna muito útil quando você
+
+deseja fazer failovers, por exemplo.
+
+Os volumes EBS são bloqueados para zonas de disponibilidade específicas,
+
+o que significa que, como eu disse, se ele for
+
+criado em us-east-1a, não poderá ser
+
+anexado a us-east-1b, mas veremos nesta seção que, se fizermos um snapshot,
+
+poderemos mover um volume de zonas de disponibilidade
+
+diferentes.
+
+E, por fim, trata-se de um volume, portanto,
+
+você precisa provisionar a capacidade com antecedência.
+
+Portanto, você precisa informar com antecedência quantos
+
+GBs deseja e o IOPS, que são operações de E/S por segundo, e basicamente
+
+está definindo o desempenho que deseja para o
+
+volume do EBS.
+
+Você será cobrado por essa capacidade de provisionamento e poderá
+
+aumentar a capacidade ao longo do tempo se
+
+quiser ter melhor desempenho ou mais tamanho.
+
+Então, como um diagrama, como ele se parece?
+
+Bem, temos o us-east-1a com uma instância do EC2
+
+e podemos anexar,
+
+por exemplo, um volume EBS à instância do EC2.
+
+Se criarmos outra instância do EC2, como eu
+
+disse, um volume do EBS não poderá ser anexado a duas instâncias
+
+ao mesmo tempo no nível do Certified Cloud Practitioner.
+
+Portanto, o que quero dizer é que essa
+
+outra instância do EC2 precisa ter
+
+seu próprio volume do EBS anexado a ela,
+
+mas é muito possível ter dois volumes do EBS anexados a uma
+
+instância, pense nisso como
+
+dois dispositivos USB de rede em uma máquina, o que faz muito sentido.
+
+Agora os volumes do EBS estão vinculados a uma zona de disponibilidade.
+
+Portanto, como podemos ver, todo esse diagrama foi feito
+
+até agora usando o us-east-1a.
+
+Portanto, se você quiser que ele tenha outros volumes EBS em outra
+
+AZ, precisará criá-los separadamente na outra zona de disponibilidade.
+
+Assim, da mesma forma que suas instâncias
+
+do EC2 estão vinculadas a uma AZ, o mesmo ocorre com os volumes EBS.
+
+Por fim, é possível criarmos EBS Volumes e deixá-los desconectados;
+
+eles não precisam estar necessariamente
+
+conectados a uma instância de ECG,
+
+podem ser conectados sob demanda, o que os torna muito,
+
+muito avançados.
+
+Por fim, quando criamos volumes do EBS por meio de instâncias
+
+do EC2, há um atributo chamado Deletes
+
+on Termination, e isso pode aparecer
+
+no exame, portanto, se você observar
+
+isso quando criamos um volume do EBS
+
+no console, quando criamos uma instância do EC2, há a penúltima coluna chamada Delete on Termination.
+
+E, por padrão, ele está marcado para o volume raiz
+
+e não está marcado para um novo volume EBS.
+
+Portanto, isso controla o comportamento do
+
+EBS quando uma instância do EC2 está sendo encerrada.
+
+Portanto, por padrão, como podemos ver, o volume EBS raiz é
+
+excluído juntamente com a instância que está sendo encerrada.
+
+Portanto, ele está ativado
+
+e, por padrão, qualquer outro volume EBS anexado não é excluído porque
+
+está desativado por padrão.
+
+Mas, obviamente, como podemos ver nesta interface do usuário, podemos controlar
+
+se você deseja ativar ou desativar a exclusão no encerramento.
+
+Portanto, o caso de uso correto seria, por
+
+exemplo, se você quiser preservar o volume raiz,
+
+quando uma instância for
+
+encerrada, por exemplo, para salvar alguns
+
+dados, poderá desativar a exclusão no
+
+encerramento do volume raiz e estará tudo certo,
+
+e isso pode ser um cenário de exame no exame.
+
+Espero que você tenha gostado.
+
+E eu o verei na próxima palestra.
+
+Instrutor: Então, vamos
+
+dar uma olhada nos volumes EBS anexados à nossa instância.
+
+Portanto, se você clicar na instância
+
+e depois for para a guia de armazenamento, verá
+
+que há um dispositivo raiz e um dispositivo de bloqueio
+
+nele.
+
+Como você pode ver, temos um volume
+
+de oito gigabytes atualmente conectado
+
+à nossa instância do EC2.
+
+Então, o que posso fazer é clicar nesse
+
+volume e ele me levará à interface de volumes do AWS.
+
+E podemos ver que, sim,
+
+de fato, nosso volume existe e está lá.
+
+Ele está em uso como mostrado aqui e está anexado
+
+a uma instância bem aqui.
+
+Portanto, temos um tipo diferente de console aqui e, para
+
+acessá-lo, basta ir para o lado esquerdo
+
+e clicar em volumes.
+
+Portanto, como podemos ver, agora temos um EBS de oito gigabytes
+
+e o que posso fazer é criar um segundo volume.
+
+Então, deixe-me criar um volume
+
+e terei muitas opções para escolher,
+
+GP2, GP3 e assim por diante,
+
+mas usarei apenas o GP2 do tipo de tamanho de dois gigabytes.
+
+E, em seguida, para a zona de disponibilidade,
+
+posso escolher a mesma onde está minha instância do EC2.
+
+Portanto, para isso, vou acessar minha instância do EC2, aqui, e descobrirei
+
+em qual zona de disponibilidade ela está.
+
+Então, eu rolo a tela
+
+para baixo e ele estará na rede.
+
+Então, rolei a tela para baixo na rede
+
+e aqui, na zona de disponibilidade, está escrito eu-west-1b.
+
+Portanto, o volume que criarei estará
+
+em eu-west-1b porque os volumes do EBS
+
+estão vinculados a uma AZ específica.
+
+Então, isso é bom.
+
+Vou fazer isso e criar esse volume.
+
+E agora meu volume foi criado.
+
+E o que posso fazer é clicar nele, pois
+
+este não está anexado no momento.
+
+Ok, ele está sendo criado, então
+
+vou atualizá-lo para ver se ele foi criado.
+
+Ok, ele está disponível e ainda não está anexado.
+
+Portanto, como ele está
+
+disponível, o que posso fazer
+
+é agir e anexar o volume, e precisamos encontrar
+
+uma instância.
+
+Portanto, temos um em execução bem aqui.
+
+Então, vamos anexar esse volume à minha instância,
+
+clicar em anexar volume e pronto, nossa instância
+
+agora tem dois volumes EBS anexados a ela.
+
+Como podemos saber?
+
+Bem, posso atualizar esta página,
+
+acessar o armazenamento no meu console do EC2 e rolar para baixo.
+
+Como você pode ver agora nos dispositivos de bloco,
+
+tenho dois dispositivos de bloco.
+
+Tenho o de oito gigabytes
+
+e o de dois gigabytes.
+
+Para usar de fato esse novo dispositivo de bloco,
+
+é um pouco mais complicado
+
+e está fora do escopo deste curso,
+
+mas você pode ir para formatar o volume do EBS, anexar o EC2 e deve encontrar algo como "sim,
+
+disponibilizar um volume do Amazon EBS para uso no Linux"
+
+e isso lhe dá instruções sobre como fazer isso, mas, novamente, está fora do escopo deste
+
+curso.
+
+Portanto, agora, se eu entrar em meus volumes
+
+e criar um volume, poderei criar um volume de dois
+
+gigabytes de GP2, mas desta vez o AZ será eu-west-1a e não
+
+eu-west-1b.
+
+Portanto, será um AZ diferente
+
+daquele da minha instância do EC2.
+
+E a razão pela qual faço isso é para mostrar
+
+a vocês que, no momento, temos três volumes de GP2.
+
+Então, deixe-me atualizar isso.
+
+Portanto, o último está disponível e é um AZ diferente,
+
+portanto, eu-west-1a.
+
+E se eu fizer ações e depois anexar o volume, como você pode
+
+ver, não poderei anexá-lo à minha instância do EC2 porque
+
+minha instância do EC2 está em eu-west-1b.
+
+Portanto, podemos ver que os volumes do EBS estão
+
+de fato vinculados a uma zona de disponibilidade específica.
+
+Por fim, o que posso fazer é pegar esse volume,
+
+executar uma ação, excluir o volume e ele desaparecerá.
+
+E isso realmente mostra o poder da nuvem.
+
+Posso simplesmente solicitar volumes
+
+e excluir volumes em questão de segundos.
+
+Temos dois volumes do EBS aqui e quero mostrar a você
+
+um comportamento interessante.
+
+Então, o que acontece se eu encerrar minha instância?
+
+Lembre-se, e vou lhe mostrar novamente,
+
+que esse volume raiz de oito gigabytes tem
+
+o atributo delete on termination.
+
+Então, como podemos saber?
+
+Bem, se eu for para o meu armazenamento
+
+e, em seguida, para os meus dispositivos de bloco, para esta
+
+tabela aqui, e rolar até a direita, você verá
+
+que o primeiro tem a opção de excluir na terminação sim
+
+e o segundo não.
+
+Então, por que esse é sim?
+
+Bem, não sei se você
+
+se lembra, mas quando você passa pelo processo
+
+de iniciar uma instância, certo?
+
+Em seguida, role para baixo até o armazenamento e, aqui, se você clicar em avançado,
+
+poderá ver o fato de que são suas raízes de oito gigabytes
+
+e, por padrão, esse atributo de exclusão
+
+no encerramento é sim, o que faz sentido, mas você pode defini-lo
+
+como não se quiser manter a raiz
+
+depois de encerrar a instância.
+
+Isso explica por que estamos vendo
+
+o "sim" nessa tabela.
+
+Portanto, se eu for em frente e encerrar minha instância, o que farei,
+
+ela dirá que foi encerrada com sucesso e, portanto,
+
+será realmente removida daqui.
+
+Posso voltar aos meus volumes do EBS.
+
+Posso atualizá-los.
+
+E o que vai acontecer é que, em
+
+breve, ele estará disponível, pois
+
+será desvinculado da minha instância do EC2 e,
+
+em seguida, será encerrado.
+
+Portanto, vou fazer uma pausa até que isso seja feito.
+
+E aqui vamos nós.
+
+Portanto, meu volume de oito gigabytes desapareceu.
+
+Só resta o meu volume de dois gigabytes
+
+e, se eu for ao console do
+
+EC2, bem, ele diz que minha primeira instância foi encerrada.
+
+Então é isso para esta palestra.
+
+Espero que tenham gostado
+
+e nos veremos na próxima palestra.
+
+Instrutor: Vamos falar também sobre o EBS Elastic Volumes.
+
+Isso é algo que o exame pode querer que você saiba
+
+e não é nada de especial.
+
+Você não precisa habilitar isso explicitamente
+
+se o seu tipo de instância for compatível com isso, o que a maioria faz atualmente.
+
+A ideia por trás do EBS Elastic Volumes é que você não
+
+precisa mais desconectar um volume ou reiniciar
+
+a instância para alterar esse volume.
+
+É um pouco mágico. Eu realmente não sei como isso funciona.
+
+Mas, de alguma forma, eles fizeram com que, se você
+
+quiser alterar o tipo de volume, o tamanho dele ou suas características
+
+de desempenho, tudo o que você precisa fazer é ir para
+
+ações e modificar o volume no console, fazer as alterações e tudo isso
+
+acontecerá sem nenhum tempo de inatividade,
+
+o que é bastante impressionante.
+
+Assim, por exemplo, você poderia aumentar o tamanho do volume
+
+sem realmente reduzir a instância
+
+à qual ele está anexado.
+
+Isso é útil, certo, se você
+
+estiver ficando sem espaço em disco?
+
+Só preciso acrescentar mais alguns. É muito fácil fazer isso.
+
+No entanto, você só pode aumentar o tamanho do
+
+volume, não pode diminuí-lo.
+
+Quer dizer, você pode imaginar como isso causaria alguma complexidade
+
+se você tentasse reduzir um volume que já estivesse
+
+cheio, certo?
+
+Então, sim, isso faz sentido para mim.
+
+Outro aspecto interessante é que você também pode alterar
+
+o tipo de volume em tempo real.
+
+Então, digamos que você queira passar do armazenamento Gp2 para o Gp3.
+
+Você pode realmente fazer isso.
+
+Basta acessar actions/modify volume, alterar o tipo de volume e, enquanto
+
+isso, especificar também o desempenho
+
+desejado de IOPS ou taxa de transferência.
+
+Se você não fizer isso, ele tentará fazer uma
+
+estimativa com base no desempenho máximo de Gp2 ou no desempenho
+
+mínimo de Gp3 que você teria obtido.
+
+Mas é uma prática melhor dizer explicitamente
+
+o que você quer lá.
+
+Mas você pode fazer isso.
+
+Na verdade, você pode alterar o tipo de volume em tempo real, sem
+
+precisar desativar a instância ou desanexar
+
+o volume ou qualquer outra coisa.
+
+Ele simplesmente fará isso. Não sei como.
+
+Mais uma vez, (risos) é um pouco mágico.
+
+Você também pode aumentar ou diminuir
+
+seus atributos de desempenho.
+
+Portanto, se você quiser apenas aumentar o desempenho
+
+de IOPS ou de taxa de transferência, também poderá fazer
+
+isso em tempo real.
+
+Portanto, esse é o EBS Elastic Volumes.
+
+Saiba que essas são coisas que você pode fazer com o EBS
+
+e que são muito legais.

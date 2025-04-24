@@ -1,0 +1,439 @@
+Instrutor: Vamos falar sobre diferentes fontes de
+
+dados e os formatos em que eles podem vir.
+
+Esse é um nível um pouco menos elevado,
+
+portanto, eu esperaria que o exame esperasse que você conhecesse esse material,
+
+mesmo que não seja necessariamente específico da AWS.
+
+A fonte de dados pode ser uma conexão JDBC.
+
+Então, talvez você tenha algum banco de dados
+
+externo do qual precise extrair os dados.
+
+O JDBC pode ser uma interface, uma interface comum
+
+para acessar e consultar esses dados conforme sua necessidade.
+
+Significa conectividade de banco de dados Java.
+
+O bom do JDBC é que ele é independente de plataforma
+
+porque é baseado em Java, certo?
+
+Ele também depende da linguagem porque,
+
+bem, é baseado em Java.
+
+Portanto, a vantagem do Java é que você pode executá-lo
+
+em praticamente qualquer dispositivo
+
+que possa imaginar.
+
+A parte ruim é que isso exige que você use a linguagem
+
+Java para acessar esses dados.
+
+Portanto, se você estiver criando uma ferramenta de
+
+extração em Java, o JDBC faz muito sentido.
+
+No entanto, se você não o fizer, se
+
+não estiver em Java, precisará de algum tipo de camada
+
+intermediária, que pode ser ODBC, conectividade de banco de dados aberto.
+
+Ele depende da plataforma porque
+
+são necessários drivers específicos para acessar os bancos
+
+de dados com ODBC, mas é independente da linguagem porque não
+
+foi desenvolvido exclusivamente em Java.
+
+Agora, você verá que, na prática,
+
+a maioria das ferramentas de extração de dados é compatível com
+
+as interfaces JDBC e ODBC.
+
+Só que esse suporte estará em uma camada um pouco mais
+
+baixa e escondida de você, certo?
+
+Portanto, só precisamos saber o que eles representam
+
+e quais são suas diferenças.
+
+Também é possível que você esteja apenas sugando dados de arquivos de registro brutos.
+
+Talvez você esteja apenas gravando logs
+
+no S3 e precise ingeri-los como estão.
+
+Não tem problema. Talvez você tenha algum tipo de API
+
+para um sistema externo.
+
+Então, talvez em vez de JDBC ou ODBC, haja
+
+alguma outra interface, alguma interface
+
+de programação de aplicativo que você
+
+possa acessar a partir do seu aplicativo de extração
+
+para acessar as informações de que precisa.
+
+Além disso, você pode ter fluxos de dados chegando.
+
+Portanto, há muitas coisas com as quais você pode lidar.
+
+Informações de streaming, Kafka, Kinesis,
+
+falaremos sobre isso com mais detalhes.
+
+Mas algumas fontes de dados fornecerão fluxos
+
+de dados em tempo real à medida que forem recebidos,
+
+e você só precisa ter o software certo
+
+para ingerir esses fluxos e fazer coisas com eles.
+
+Alguns formatos de dados comuns, isso é importante, pessoal.
+
+CSV, você provavelmente já sabe o que é isso.
+
+Um arquivo de valores separados por vírgula.
+
+Basicamente, é um formato baseado em texto. É legível para humanos.
+
+Essa é a chave aqui, onde os dados estão em um formato tabular
+
+em que cada linha de dados corresponde a uma linha de dados e os valores
+
+são separados por vírgulas.
+
+Agora, não precisa ser necessariamente uma vírgula.
+
+Seu delimitador pode ser praticamente qualquer coisa.
+
+O uso de vírgulas pode ser complicado se você tiver vírgulas dentro
+
+dos próprios dados, certo?
+
+Então, você precisa descobrir, oh, quais
+
+são as minhas regras para escapar desses dados e citá-los e assim por diante.
+
+Então, às vezes, você vê arquivos CSV em
+
+que o delimitador não é uma vírgula.
+
+Pode ser um cano ou uma guia A ou qualquer outra coisa, certo?
+
+Não tem problema. Você pode chamá-lo
+
+de arquivo TSV se ele estiver separado por uma guia.
+
+Mas a ideia é a mesma. Quando você usa esse produto?
+
+Principalmente adequado para conjuntos de dados de pequeno e médio
+
+porte, pois não é codificado.
+
+É legível para humanos, certo?
+
+Portanto, não é a maneira mais eficiente de armazenar
+
+informações, mas é fácil de ler.
+
+Também é um denominador bastante comum para diferentes sistemas.
+
+Portanto, praticamente qualquer coisa pode manipular um arquivo CSV.
+
+Portanto, se você precisar trocar seus
+
+dados entre sistemas diferentes, um CSV é uma ótima opção de
+
+língua franca, por assim dizer.
+
+Uma maneira de transformar esses dados entre qualquer coisa.
+
+E se você quiser que ele seja legível e editável por
+
+humanos, o CSV tem uma grande vantagem, certo?
+
+Portanto, é muito fácil abrir um arquivo CSV em um editor
+
+de texto, lê-lo, entender o que há nele e talvez até modificá-lo
+
+diretamente sem precisar decodificá-lo e codificá-lo ao longo
+
+do caminho.
+
+Também é útil para importar e
+
+exportar dados de bancos de dados ou planilhas.
+
+Novamente, a implicação
+
+de uma planilha é que provavelmente não há muitos dados.
+
+Portanto, um CSV é suficiente.
+
+Normalmente, isso é usado em bancos
+
+de dados baseados em SQL.
+
+Se você estiver ingerindo dados
+
+em um banco de dados SQL, o Microsoft Excel facilita muito a importação
+
+e exportação de CSVs.
+
+O Pandas, se você estiver usando um notebook Python,
+
+pode lidar com CSVs com bastante facilidade.
+
+R e muitas ferramentas de ETL também.
+
+Há também a notação de objeto JSON JavaScript.
+
+Você vê isso com muito mais frequência.
+
+Você vê isso no mundo do
+
+desenvolvimento de aplicativos para transmitir dados
+
+entre serviços de back-end e sites de front-end.
+
+Mas, de forma mais geral, é um formato de intercâmbio de dados leve,
+
+baseado em texto e legível por humanos, que representa
+
+dados estruturados ou
+
+semiestruturados com base em pares de valores-chave.
+
+Portanto, a principal diferença aqui
+
+é que ele pode ser semiestruturado.
+
+Ele ainda pode ser lido por humanos, assim como um arquivo CSV.
+
+Mas você pode ter diferentes tipos de informações
+
+em diferentes linhas, certo?
+
+Portanto, como tudo é marcado em pares de valores-chave,
+
+você pode ter diferentes pares de valores-chave em cada linha,
+
+e isso não é problema com o JSON.
+
+Portanto, como eu disse, isso é mais comumente usado entre um servidor
+
+da Web e um cliente da Web como uma forma de trocar
+
+informações.
+
+É o padrão padrão para isso.
+
+Além disso, para arquivos de configurações
+
+e definições de aplicativos de software, você verá bastante
+
+isso no formato JSON.
+
+E também apenas para casos de uso em que você precisa de um esquema
+
+flexível ou talvez de estruturas de dados
+
+aninhadas, o que não é algo que pode ser feito
+
+facilmente com o CSV, mas com o JSON você pode ter, sabe, mais camadas
+
+de estrutura dentro de cada linha, o que é algo interessante.
+
+Você vê isso nos navegadores da Web.
+
+Ele é amplamente compatível com várias linguagens de programação,
+
+JavaScript, Python, Java, APIs restritas e também com bancos
+
+de dados SQL.
+
+Portanto, se você precisar armazenar dados semiestruturados, talvez
+
+esse seja o formato em que está armazenando
+
+esses dados semiestruturados no seu banco de dados subjacente, como
+
+o MongoDB, que é uma boa opção para esse tipo de dados.
+
+Vamos falar também sobre a Avro.
+
+Portanto, estamos saindo do mundo
+
+das informações legíveis por humanos.
+
+O Avro é um formato binário, que armazena os dados e seu esquema, permitindo
+
+que sejam processados posteriormente com sistemas diferentes
+
+sem a necessidade do contexto original dos
+
+sistemas.
+
+Portanto, trata-se de um pequeno pacote de
+
+dados e de seu esquema em formato binário para torná-lo
+
+agradável e compacto.
+
+Adequado para big data e sistemas de processamento em tempo real.
+
+Sua natureza binária significa que ele está fazendo uso
+
+mais eficiente dos dados dos bits que possui.
+
+Se o esquema for mudar, se a estrutura
+
+de dados puder mudar com o tempo, esse
+
+pode ser um bom motivo para
+
+codificar o próprio esquema junto com os dados.
+
+Se o seu esquema não mudar, então você estará
+
+desperdiçando espaço ao codificar
+
+esse esquema junto com os dados todas as vezes, certo?
+
+Portanto, o caso de uso real aqui é se esse esquema pode mudar e você precisa
+
+vincular esse esquema aos dados aos quais ele está
+
+vinculado, o que também é bom para a serialização
+
+eficiente do transporte de dados
+
+entre sistemas.
+
+Portanto, se você precisar enviar dados do ponto A para o ponto B, codificá-los
+
+e decodificá-los a partir do Avro pode ser uma maneira eficiente
+
+de fazer isso.
+
+Novamente, porque é de natureza binária
+
+e porque as informações sobre como decodificá-lo
+
+estão embutidas no próprio formato.
+
+O Apache Kafka, o Apache Spark, o Apache Flink
+
+e o Hadoop são exemplos de sistemas que
+
+lidam com o formato Avro com bastante facilidade, e falaremos
+
+sobre todos esses sistemas em detalhes mais adiante.
+
+Parquet, essa questão é muito discutida.
+
+Isso é o que chamamos de coluna ou formato de armazenamento.
+
+Portanto, como ele armazena dados por colunas em vez de linhas, é otimizado
+
+para análises em que suas consultas podem estar
+
+analisando apenas colunas específicas de informações e não tudo
+
+o que está em uma linha, certo?
+
+Portanto, estamos meio que virando as coisas de cabeça para baixo,
+
+restaurando as informações por suas colunas.
+
+Porque sei que, quando estiver consultando esses dados, provavelmente
+
+só estarei interessado em colunas específicas e
+
+não na linha inteira.
+
+Portanto, essa é uma otimização para a análise, e
+
+é por isso que o Parquet é uma parte muito importante
+
+de uma plataforma de análise de dados.
+
+Isso permite a compactação e a codificação eficientes, novamente,
+
+porque as colunas tendem a ter o mesmo formato, certo?
+
+Isso nos permite compactá-lo ainda melhor.
+
+Isso é útil novamente para analisar grandes conjuntos de dados
+
+nos mecanismos de análise.
+
+Os casos de uso em que a leitura de colunas específicas
+
+em vez de registros inteiros é benéfica.
+
+Então, novamente, pense em situações em que você
+
+pode ter muitos recursos, muitas colunas em cada
+
+linha, mas um caso de uso específico,
+
+uma análise específica, precisa apenas
+
+de um subconjunto muito pequeno dessas colunas.
+
+É aí que o parquet se torna muito poderoso.
+
+Também é útil para armazenar dados em sistemas distribuídos porque
+
+posso dividir as coisas com base nas colunas que estão
+
+sendo consultadas.
+
+Então, talvez eu armazene algumas colunas em servidores diferentes, certo?
+
+Essa pode ser uma otimização muito importante quando estou
+
+tentando minimizar a sobrecarga de IO ou a sobrecarga
+
+de armazenamento com base no que estou tentando fazer.
+
+Portanto, exemplos que usam o Parquet Hadoop, novamente, o Apache Spark,
+
+novamente, o Apache High do Apache Impala
+
+e o Redshift Spectrum, que é uma parte muito importante
+
+do mundo da engenharia de dados e da análise de dados no AWS.
+
+Se você tiver um caso de uso em que tenha muitas colunas, mas
+
+talvez não precise analisar todas
+
+elas, o Parquet é uma maneira muito eficiente
+
+de armazenar essas informações, consultar essas
+
+informações e também distribuir
+
+o processamento dessas informações com base
+
+nas colunas.

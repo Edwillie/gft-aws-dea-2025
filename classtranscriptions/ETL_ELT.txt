@@ -1,0 +1,275 @@
+Narrador: Então, falamos sobre
+
+ETL no contexto de data warehouses e extração, transformação
+
+e carregamento de dados em um data warehouse.
+
+Vamos nos aprofundar no
+
+que cada uma dessas letras realmente significa.
+
+Então, novamente, ETL. Extrair, transformar e carregar.
+
+E para um lago de dados, seria o ELT.
+
+Apenas trocando os dois últimos,
+
+mas as letras significam a mesma coisa em ambos os casos.
+
+E é para extrair, e isso significa recuperar seus dados brutos
+
+de onde quer que eles venham.
+
+Falaremos mais sobre fontes de dados daqui a pouco,
+
+mas isso pode ser um banco de dados externo.
+
+Pode ser algum sistema de gerenciamento de relacionamento com o cliente,
+
+como o Salesforce.
+
+Podem ser arquivos simples, como um arquivo de registro em algum lugar, certo?
+
+Podem ser APIs para algum outro sistema inteiramente ou pode ser
+
+algum outro repositório de dados.
+
+Portanto, seus dados provavelmente vêm de vários lugares.
+
+Você precisa saber como fazer a interface com essas informações
+
+e extraí-las para o seu data warehouse.
+
+Você também precisa ter
+
+certeza de que não estamos perdendo ou corrompendo nossos dados ao longo do
+
+caminho, portanto, é necessário garantir a integridade dos
+
+dados enquanto eles estão sendo extraídos.
+
+O que acontecerá se uma de suas chamadas de API para extrair dados falhar?
+
+Você tenta novamente? Com que frequência você tenta novamente?
+
+Quais são suas políticas lá?
+
+Isso pode ser um pouco desagradável.
+
+E você também precisa pensar na velocidade desses dados.
+
+Voltando ao conceito dos três Vs.
+
+Você vai extrair esses dados em tempo real
+
+à medida que eles são produzidos quase em
+
+tempo real, ou seja, em poucos minutos,
+
+ou talvez apenas em lotes, uma vez
+
+por noite ou uma vez por semana?
+
+Depende de suas necessidades, certo?
+
+Portanto, você precisa entender
+
+como esses dados serão gerados,
+
+como serão consultados e quais
+
+são os requisitos relacionados a eles antes
+
+de tomar decisões sobre como essa extração funciona.
+
+Passando para o T, transformar.
+
+É aqui que convertemos os dados brutos extraídos
+
+em um formato adequado ao nosso data warehouse de destino.
+
+Agora, novamente, com o data warehouse,
+
+faremos isso antecipadamente com um lago de dados.
+
+Talvez estejamos fazendo essa
+
+transformação mais sob demanda no final.
+
+Em ambos os casos, o que queremos dizer com transformar?
+
+Podemos significar muitas coisas, na verdade, várias coisas.
+
+Precisamos limpar esses dados, certo?
+
+Portanto, talvez tenhamos alguns dados ruins,
+
+talvez haja erros que precisem ser corrigidos.
+
+Talvez haja dados duplicados que precisem ser removidos.
+
+Talvez haja dados faltantes que precisemos imputar.
+
+Talvez seja necessário enriquecer esses
+
+dados de alguma forma, talvez acrescentar dados adicionais
+
+de outras fontes antes de realmente
+
+escrevê-los, portanto, talvez seja necessário combinar duas extrações para fazer
+
+a transformação que desejamos.
+
+Uma transformação muito comum é a alteração do formato.
+
+Então, algo que você vê o tempo todo é que talvez suas datas
+
+estejam armazenadas como strings brutas em algum formato, mas
+
+você precisa transformá-las
+
+em um formato de data e hora, certo?
+
+Portanto, a mudança de formato é muito comum.
+
+Em geral, você tende a lidar
+
+muito com dados de texto e, às vezes,
+
+precisa transformá-los em números inteiros, dados binários,
+
+o que quer que seja.
+
+Para o aprendizado de máquina, talvez seja necessário codificá-lo
+
+a quente, mas não vou entrar nesse assunto agora.
+
+Agregações ou cálculos.
+
+Talvez seja necessário calcular os
+
+totais ou as médias em vez de ou além dos dados brutos.
+
+Talvez seja necessário codificar ou decodificar os dados.
+
+Talvez ela esteja chegando a você em um formato estranho que
+
+você precisa primeiro descriptografar ou decodificar antes
+
+de poder realmente escrevê-la
+
+no formato que deseja.
+
+É muito comum que o material chegue compactado
+
+ou em algum formato colunar ou qualquer outro, ou talvez
+
+você precise codificá-lo em um formato colunar para
+
+armazená-lo onde quiser.
+
+E a falta de dados também é um problema muito comum.
+
+Novamente, tudo depende de suas necessidades.
+
+Se você tiver um requisito de que uma determinada
+
+coluna não tenha nenhum valor nulo, precisará descobrir
+
+como lidar com isso.
+
+Você vai simplesmente eliminar as linhas que têm valores ausentes?
+
+Você vai imputar algum tipo
+
+de informação de espaço reservado lá?
+
+Você cria um relatório que diz: "Ei,
+
+rejeitei todas essas informações. Vá lidar com isso"?
+
+Novamente, depende de suas necessidades.
+
+Por fim, o L, load (carga).
+
+Isso é mover seus dados transformados
+
+para o data warehouse de destino
+
+ou para um repositório, no caso de um data warehouse.
+
+E isso pode ser feito novamente em lotes de uma só vez
+
+ou em streaming em tempo real, à medida que os dados se tornam disponíveis.
+
+Novamente, tudo se resume ao volume de
+
+dados de que você está falando e à velocidade dos
+
+dados, quais são seus requisitos para analisar esses
+
+dados e extrair significado deles.
+
+E, assim como tivemos que garantir a integridade dos
+
+dados na fase de extração, também
+
+precisamos garantir a integridade dos dados durante a fase de carregamento.
+
+Às vezes, os direitos de disco falham, você sabe, às
+
+vezes é feito um backup das coisas.
+
+Você precisa estar atento a esses casos e lidar com eles.
+
+Você não quer simplesmente deixar os dados caírem
+
+no chão e não saber
+
+deles enquanto os carrega em seu data warehouse.
+
+Também precisamos gerenciar esses pipelines.
+
+Portanto, como você pode
+
+imaginar, falamos sobre muitas coisas, muitas etapas.
+
+Algo precisa orquestrar tudo isso.
+
+Algo precisa garantir
+
+que tudo aconteça na ordem certa e no
+
+cronograma certo, certo?
+
+Portanto, precisamos automatizar esses pipelines de alguma forma confiável.
+
+A AWS oferece muitos serviços para fazer isso.
+
+O AWS Glue é um deles, que pode
+
+fazer ETL ou ELT automaticamente nos dados à medida que eles são
+
+recebidos e em resposta
+
+a eventos de entrada desses dados.
+
+E em um nível mais
+
+alto, temos serviços de orquestração, como EventBridge,
+
+Amazon Managed Workflows para Apache Airflow,
+
+AWS Step Functions, Lambda e fluxos de trabalho no AWS Glue.
+
+Vamos nos aprofundar nesses aspectos mais adiante
+
+no curso.
+
+Portanto, neste momento, estou apenas tentando
+
+colocar essas ideias na
+
+sua cabeça e entender como esses serviços se encaixam
+
+no problema mais amplo dos pipelines de ETL.

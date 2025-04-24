@@ -1,0 +1,227 @@
+O guia do exame também quer que você saiba sobre
+
+as propriedades dos dados e as chama de três
+
+Vs: volume, velocidade e variedade.
+
+Também ouvi dizer que há um quarto V em muitos dos
+
+textos que você pode encontrar.
+
+Isso é veracidade, mas o guia do exame fala sobre três, portanto, vamos
+
+nos concentrar apenas no volume, na
+
+velocidade e na variedade, e ignoraremos a veracidade por enquanto.
+
+Volume é exatamente o que parece, de quantos
+
+dados estamos falando?
+
+Então, qual é a quantidade ou o tamanho dos dados com os quais você
+
+está lidando aqui em um determinado momento?
+
+E isso pode afetar suas decisões sobre como armazenar
+
+e tratar esses dados, certo?
+
+Portanto, talvez sejam gigabytes de dados,
+
+talvez sejam petabytes de dados.
+
+Entender isso, mais uma vez, lhe trará desafios
+
+diferentes em relação a como armazenar, processar
+
+e analisar essas informações.
+
+Então, se você precisar, por exemplo,
+
+importar um monte de dados do local para o AWS, a quantidade de dados
+
+de que estamos falando pode influenciar
+
+sua decisão de, bem, eu simplesmente faço o
+
+upload disso pela Internet usando o console
+
+ou chamo um AWS Snowmobile e realmente transporto
+
+isso fisicamente em mídia física, coisas assim, certo?
+
+Alguns exemplos.
+
+Digamos que você seja uma plataforma de mídia social.
+
+Bem, não tenho certeza por quanto tempo mais eles serão populares.
+
+Eles parecem estar em declínio,
+
+mas não vou fazer um editorial aqui.
+
+Mas esse pode ser um exemplo de ter terabytes
+
+de dados todos os dias para pessoas que postam
+
+coisas, imagens e vídeos.
+
+Portanto, o volume é alto.
+
+Como você armazena tudo isso, como você acessa tudo isso?
+
+Obviamente, você precisa de alguma forma de
+
+acessar essas informações, consultá-las e analisá-las
+
+em escala de alguma forma distribuída.
+
+Talvez você tenha um varejista que esteja
+
+coletando vários anos de dados de transações.
+
+Se for um varejista grande o suficiente,
+
+talvez sejam vários petabytes de informações, certo?
+
+Portanto, se estiver lidando
+
+com grandes volumes de dados que acarretam
+
+grandes problemas, é preciso pensar
+
+em sistemas distribuídos que possam processar e mover as coisas em paralelo,
+
+em vez de ter um banco de dados relacional único, monolítico
+
+e independente, mas, se não houver muitos dados, talvez essa seja a decisão
+
+certa.
+
+O volume desempenha um papel importante em suas decisões sobre como criar
+
+seus pipelines de engenharia de dados.
+
+O segundo V é velocidade e, mais uma vez, é o que parece, referindo-se
+
+à velocidade com que novos dados são gerados,
+
+coletados e processados.
+
+Então, você sabe, será possível lidar
+
+com essas informações em lote ou precisará
+
+transmiti-las e processá-las continuamente
+
+em tempo real?
+
+Se for de alta velocidade, talvez você precise de recursos
+
+de processamento em tempo real ou quase em tempo real,
+
+e tempo real versus quase em tempo real é uma
+
+nuance que o exame adora investigar.
+
+Muitas vezes, isso ocorre no contexto
+
+de: devo escolher o Kinesis Data Streams
+
+em vez do Kinesis Data Firehose para um determinado aplicativo?
+
+A ingestão e o processamento rápidos também podem
+
+ser essenciais para determinados aplicativos, portanto,
+
+novamente, é preciso decidir se essas informações serão
+
+processadas em lote no final do dia ou se serão processadas
+
+continuamente em tempo real à medida que
+
+forem recebidas.
+
+Alguns exemplos: dados de sensores de dispositivos da Internet das Coisas que
+
+podem estar sendo transmitidos e lidos a cada milissegundo.
+
+A AWS, a propósito, parece estar se afastando
+
+de todo o tópico de IoT no exame, portanto,
+
+não gaste muito tempo pensando especificamente na IoT, mas esse
+
+é apenas um exemplo de aplicativo
+
+de dados de streaming.
+
+Talvez um exemplo mais relevante seja
+
+um sistema de comércio de alta frequência, certo?
+
+Portanto, as pessoas que estão
+
+negociando ações, e cada milissegundo conta, você sabe.
+
+Você quer ter certeza de que
+
+a ordem correta das transações está lá e que as coisas são processadas
+
+imediatamente e de maneira consistente.
+
+O último V sobre o qual falaremos é variedade,
+
+e isso remete aos nossos tipos de dados, uma
+
+lição que tivemos anteriormente.
+
+Então, com que tipo de dados estamos lidando?
+
+Qual é a sua estrutura, qual é a sua fonte?
+
+Ela é estruturada, semiestruturada
+
+ou não estruturada, e de onde vem?
+
+Pode estar vindo de várias fontes, e talvez
+
+cada fonte tenha seu próprio formato com
+
+o qual você precisa lidar.
+
+Alguns exemplos.
+
+Talvez tenhamos uma empresa analisando
+
+dados de bancos de dados relacionais, que são dados estruturados,
+
+e-mails que não são estruturados e registros
+
+JSON, que são semiestruturados.
+
+Como você mistura todas essas coisas?
+
+Ou talvez você seja um sistema de saúde que coleta
+
+dados de registros médicos eletrônicos, dispositivos
+
+de saúde ou formulários de feedback de pacientes.
+
+Novamente, a variedade de dados com os quais
+
+você está lidando pode influenciar a forma como você escolhe armazenar
+
+essas informações, e talvez você as armazene
+
+em mais de um lugar, mas precisaria de uma solução unificada para consultar esses
+
+dados em todos esses armazenamentos de dados especializados
+
+em diferentes formatos de dados provenientes
+
+da variedade de dados que você tem.
+
+Então, esses são os três Vs: volume, velocidade e variedade.
+
+Lembre-se disso no exame.

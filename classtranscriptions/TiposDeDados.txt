@@ -1,0 +1,308 @@
+nosso foco nesta seção será um pouco incomum,
+
+pois não falaremos principalmente de coisas da AWS.
+
+Estamos apenas voltando
+
+e revisando alguns fundamentos da engenharia de dados que vão além da AWS.
+
+E o guia do exame diz que você precisa
+
+conhecer algumas dessas coisas, não apenas os serviços da AWS.
+
+Portanto, novamente, não abordaremos tudo sobre
+
+engenharia de dados
+
+aqui, apenas o que é explicitamente mencionado
+
+no guia do exame.
+
+Um deles são os três tipos de dados.
+
+Então, vamos revisar isso.
+
+Temos dados estruturados, não estruturados e semiestruturados.
+
+Portanto, precisamos entender o que isso significa
+
+para obter êxito no exame.
+
+Vamos revisar.
+
+Portanto, dados estruturados
+
+significam dados organizados de uma maneira
+
+definida ou esquema, normalmente encontrados em
+
+bancos de dados relacionais.
+
+Portanto, os dados já foram organizados em colunas
+
+distintas de informações que têm tipos
+
+de dados distintos.
+
+E já pensamos em como
+
+todas essas colunas se relacionam entre
+
+si e como podemos querer pesquisar esses dados.
+
+As características dos dados estruturados incluem o fato
+
+de serem facilmente consultáveis.
+
+Portanto, como ele tem essa estrutura, é muito
+
+fácil lançar uma consulta SQL nele, certo?
+
+Como você já sabe o nome das colunas,
+
+sabe quais são os tipos de dados,
+
+sabe o que esperar.
+
+Ele já está organizado em linhas e colunas.
+
+E tem uma estrutura consistente.
+
+Não há surpresas. Ele já foi limpo.
+
+Alguns exemplos são as tabelas de banco
+
+de dados, é claro, Oracle, Redshift, MySQL, PostgreSQL,
+
+o que quer que seja.
+
+Além disso, um arquivo CSV contaria como dados estruturados,
+
+desde que seus dados sejam consistentes,
+
+desde que tenha colunas consistentes dentro dele
+
+e você não tenha nenhuma coisa maluca, como linhas
+
+com números variados de colunas, certo?
+
+Isso é possível em CSV.
+
+Mas, supondo que seja um CSV bem estruturado, isso seria
+
+um dado estruturado.
+
+Além disso, as planilhas do Excel são um exemplo disso.
+
+E, obviamente, é possível criar uma planilha do Excel
+
+que não seja estruturada
+
+e que contenha apenas um monte de lixo aleatório.
+
+Mas, você sabe, sua planilha típica do Excel,
+
+organizada em linhas e colunas de informações
+
+bem definidas, seria um dado estruturado.
+
+Do outro lado da cerca, temos
+
+os dados não estruturados, dados que
+
+não têm uma estrutura ou esquema predefinido,
+
+que são apenas uma
+
+coleção de dados que
+
+temos que descobrir o que são antes de começar
+
+a consultá-los.
+
+Portanto, não podemos consultar dados não
+
+estruturados sem antes pré-processá-los
+
+e, de alguma forma, extrair o significado desses dados e descobrir
+
+como indexá-los primeiro.
+
+Pode vir em vários formatos.
+
+Por exemplo, arquivos de texto bruto que não têm formato fixo.
+
+Talvez você esteja processando,
+
+por exemplo, todo o texto da Wikipédia ou algo assim,
+
+ou todo o texto do Reddit, ou todo o texto
+
+de um livro, porque você quer fazer
+
+uma pesquisa de texto completo mais tarde ou treinar um modelo
+
+de linguagem grande com ele.
+
+Quem sabe?
+
+Nesse caso, você precisa
+
+fazer algum pré-processamento, obviamente,
+
+para indexar esse arquivo primeiro.
+
+Vídeos, áudio e arquivos de imagem são outro exemplo.
+
+Na verdade, não é possível pesquisá-los diretamente.
+
+Você precisa extrair alguns metadados disso primeiro.
+
+Portanto, não há estrutura para uma imagem,
+
+um vídeo ou um arquivo de áudio.
+
+Precisamos extrair essa estrutura
+
+e dizer: "Ei, qual é a transcrição desse vídeo?
+
+Como faço para organizá-lo?
+
+Quando ele foi criado?
+
+Qual é a duração?
+
+Quem o criou?
+
+Do que se trata? "Certo?
+
+Qual é o tema?
+
+Coisas desse tipo precisariam ser extraídas
+
+desses dados primeiro.
+
+E-mails e documentos de processamento de texto também.
+
+Mesma categoria dos arquivos de texto ou apenas
+
+informações de texto bruto.
+
+Novamente, precisamos indexar essas informações primeiro,
+
+descobrir seu significado, do que se trata
+
+e, em seguida, podemos ter a estrutura necessária para
+
+realmente consultar essas informações.
+
+E, em algum ponto intermediário,
+
+temos os dados semiestruturados.
+
+O que você quer dizer com isso é um pouco confuso, mas
+
+a definição oficial é que se trata de dados que não são tão organizados
+
+quanto os dados estruturados, mas que têm algum nível
+
+de estrutura na forma de tags, hierarquias ou outros padrões.
+
+Portanto, a estrutura está lá em algum lugar, mas
+
+você precisa trabalhar um pouco
+
+para descobri-la, certo?
+
+Portanto, ele pode ter elementos que são
+
+marcados ou categorizados de alguma forma.
+
+Ele será mais flexível do que os dados estruturados,
+
+mas não tão caótico quanto os dados não estruturados.
+
+Assim, talvez você possa colocar diferentes tipos de
+
+material lá e se safar.
+
+Mas, você sabe, ainda podemos extrair as informações necessárias.
+
+Os arquivos XML e JSON são exemplos disso, em que você
+
+pode ter diferentes tipos de esquema no mesmo
+
+documento, certo?
+
+Mas ainda há tags suficientes nesse
+
+arquivo para descobrir do que estamos falando.
+
+Portanto, o esquema nesse caso pode não ser consistente, mas
+
+pelo menos ele existe, certo?
+
+Portanto, isso é semiestruturado.
+
+Os cabeçalhos de e-mail são outro exemplo disso.
+
+Ele pode ter qualquer número de informações,
+
+como data e assunto,
+
+e também os dados não estruturados dentro do corpo.
+
+Então, quando não temos certeza do que está lá dentro, sabe,
+
+isso é semiestruturado, se
+
+pelo menos soubermos o que
+
+está lá dentro, certo?
+
+Isso faz sentido?
+
+Os arquivos de registro são provavelmente o exemplo mais importante
+
+disso no contexto da engenharia de
+
+dados, pois são os mais comuns.
+
+Se você tiver um arquivo de registro
+
+do Apache, um registro de serviço ou um registro do servidor, eles
+
+podem ter vários formatos, certo?
+
+E nem sempre as informações que eles estão
+
+escrevendo são consistentes.
+
+Pode haver muitos dados faltando.
+
+Pode haver dados que existam em algumas linhas,
+
+mas não em outras.
+
+E talvez seja necessário analisar um pouco
+
+cada linha desse registro para descobrir do que se trata
+
+e qual é a estrutura dessa linha individual.
+
+Portanto, novamente, semiestruturado, a estrutura
+
+está lá, mas pode não
+
+ser consistente em todo o documento.
+
+Acho que essa é realmente a melhor maneira de resumir.
+
+Portanto, trata-se de dados estruturados, não
+
+estruturados e semiestruturados, uma
+
+coisa que o guia do exame exige para
+
+os fundamentos da engenharia de dados.
+

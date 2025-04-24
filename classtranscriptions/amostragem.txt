@@ -1,0 +1,215 @@
+Instrutor: O guia do exame
+
+menciona a amostragem de dados.
+
+Então, vamos fazer uma rápida revisão.
+
+Há dois tipos principais que devem ser conhecidos
+
+e um deles é apenas a amostragem aleatória.
+
+Agora, o objetivo da amostragem, certo, é
+
+pegar um conjunto de dados grande e fazer um
+
+conjunto menor a partir dele.
+
+Talvez você queira apenas brincar com ele.
+
+Talvez você não queira incorrer na despesa
+
+de lidar com esse conjunto
+
+de dados maior e queira apenas um conjunto de dados de amostra
+
+que seja menor, mas ainda representativo do conjunto de dados maior
+
+original para fins de análise.
+
+Uma maneira de fazer isso é simplesmente fazer uma amostragem aleatória
+
+desse conjunto de dados, certo?
+
+Portanto, com a amostragem aleatória, tudo tem a mesma chance de ser selecionado
+
+para a sua amostra.
+
+Você está apenas jogando os dados e vendo o que consegue.
+
+E isso funciona bem se você for uma amostra, sabe, todas
+
+as mesmas coisas, certo?
+
+Portanto, se não houver categorias diferentes dentro dos
+
+dados que lhe interessam, a amostragem
+
+aleatória faz sentido.
+
+Entretanto, às vezes isso não faz sentido,
+
+e é aí que entra a amostragem estratificada.
+
+Então, imagine que você tenha um grande conjunto de dados,
+
+mas que tenha classificações diferentes
+
+dentro desse conjunto de dados que lhe interessam,
+
+e você quer ter certeza de que seu conjunto de dados de amostra
+
+está capturando exemplos de cada uma dessas categorias diferentes,
+
+certo?
+
+Então, por exemplo, talvez tenhamos coisas brancas, pretas e cinzas das quais queremos fazer uma
+
+amostragem e, se fizermos uma amostragem aleatória,
+
+há uma chance de não obtermos nada
+
+além de coisas brancas ou nada além de coisas
+
+cinzas, ou talvez coisas brancas e cinzas, mas não coisas pretas suficientes,
+
+certo?
+
+É isso que este exemplo aqui à direita
+
+está tentando mostrar.
+
+A ideia aqui é dividir nossa população em subgrupos
+
+homogêneos, chamados de estratos.
+
+Então, damos uma olhada nessas coisas brancas,
+
+pretas e cinzas, e fazemos
+
+uma amostragem aleatória de cada estrato.
+
+Isso garante que tenhamos uma boa representação
+
+de cada subgrupo.
+
+Portanto, não precisamos nos preocupar com a falta de uma categoria
+
+inteira de coisas em nossa amostra de dados original.
+
+Se estivermos fazendo uma amostragem
+
+estratificada, isso garante que estamos obtendo representação
+
+de cada um desses subgrupos,
+
+o que é muito importante nos dias de hoje.
+
+Outros tipos de técnicas de amostragem são sistêmica,
+
+de agrupamento, de conveniência e de julgamento.
+
+Acho que o sistêmico é o único sobre
+
+o qual você provavelmente ouvirá falar.
+
+Então, vamos examinar alguns exemplos mais detalhadamente.
+
+Novamente, amostragem aleatória.
+
+Digamos que tenhamos, você sabe,
+
+essa coleção de informações de compra em que elas são
+
+representadas por essas pequenas carteiras,
+
+se preferir.
+
+Vamos escolher três aleatoriamente, certo?
+
+Portanto, dentre essa pilha de dados, vamos
+
+selecionar esses dados e colori-los de vermelho.
+
+Essa será nossa nova amostra.
+
+Escolhemos todos eles aleatoriamente,
+
+não há um padrão, não
+
+há rima ou razão para isso, é uma amostragem aleatória.
+
+Amostragem estratificada.
+
+Vamos imaginar que, em vez disso, queremos pensar
+
+em compras de tipos específicos de itens.
+
+Então, talvez tenhamos pessoas que compraram livros,
+
+pessoas que compraram música,
+
+CDs ou downloads digitais, ou pessoas
+
+que compraram artigos para casa e jardim ou artigos de vestuário.
+
+Queremos ter certeza de que temos uma representação uniforme de cada uma dessas
+
+categorias em nosso conjunto de dados de amostra.
+
+Então, talvez digamos que queremos selecionar dois livros, dois músicas,
+
+dois artigos de casa e jardim e dois artigos
+
+de vestuário.
+
+E mesmo que isso não represente a proporção real desses
+
+diferentes tipos de coisas em nosso conjunto
+
+de dados, isso garante que tenhamos amostras e cobertura suficiente de cada uma
+
+dessas categorias de dados em nossa amostra.
+
+Tudo bem? Faz sentido.
+
+Portanto, estratificamos nossos dados aqui
+
+nas categorias que nos interessam
+
+e para as quais queremos
+
+garantir uma representação igual em nosso conjunto de dados de amostra,
+
+e extraímos o número necessário de amostras de cada estrato.
+
+Essa é uma amostragem estratificada.
+
+Por fim, vamos analisar a amostragem sistêmica.
+
+A única diferença aqui é
+
+que, em vez de apenas fazer uma amostragem
+
+aleatória, estamos dizendo algo como:
+
+vamos escolher um a cada três itens, certo?
+
+Portanto, temos uma regra sistêmica para a amostragem de nossos dados, em vez de
+
+simplesmente fazer isso de forma aleatória.
+
+Portanto, nesse caso, é isso que estamos fazendo.
+
+Estamos dizendo que a cada três pedidos,
+
+vamos selecionar aquele e levá-lo.
+
+Portanto, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, obtemos
+
+um vermelho a cada três tentativas.
+
+Portanto, esse é um exemplo de amostragem sistêmica.
+
+Em resumo, essa é a amostragem de dados.
+
+Bastante simples, mas importante para a revisão do exame.

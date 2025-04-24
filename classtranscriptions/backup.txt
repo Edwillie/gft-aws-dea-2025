@@ -1,0 +1,407 @@
+-: Olá, bem-vindos a esta palestra sobre o Backup da AWS.
+
+Portanto, o AWS Backup é um serviço totalmente gerenciado
+
+e permite que você gerencie e automatize
+
+centralmente os backups em todos os seus
+
+serviços do AWS.
+
+E a lista está ficando cada vez maior a
+
+cada dia que passa.
+
+Portanto, a ideia é que você queira
+
+ter um local central.
+
+Você não quer criar scripts personalizados
+
+nem ter processos manuais.
+
+Você deseja ter uma visão
+
+central de sua estratégia de backup.
+
+Portanto, os serviços de suporte são bastante amplos.
+
+Por exemplo, Amazon EC2, EBS, Amazon S3, RDS e todos os mecanismos
+
+de banco de dados suportados,
+
+Aurora, DynamoDB, DocumentDB, Amazon Neptune, EFS, FSX, incluindo
+
+Lustre, Windows File Server e provavelmente outros.
+
+AWS Storage Gateway,
+
+como o Volume Gateway.
+
+E há mais coisas que podem vir com o tempo, mas não vou necessariamente
+
+atualizar essa palestra
+
+porque, bem, isso não importa.
+
+As ideias para que você entenda o conceito por trás
+
+do backup de banco
+
+de dados e os serviços mais importantes
+
+são mostradas no slide.
+
+Portanto, ele oferece suporte a backups entre regiões.
+
+Isso não significa que você não possa
+
+ter seu backup transferido para outra região para uma estratégia
+
+de recuperação de desastres, tudo em um só
+
+lugar.
+
+E também suporta backups entre contas,
+
+se você estiver usando várias contas
+
+em sua estratégia do AWS.
+
+Portanto, ele oferece suporte à recuperação
+
+pontual para serviços compatíveis, como
+
+o Aurora.
+
+Ele oferece suporte a backups agendados e sob demanda.
+
+Há políticas de backup baseadas em tags para garantir
+
+que você faça backup apenas
+
+dos recursos que tenham sido marcados
+
+com produção.
+
+E você pode criar políticas de backup conhecidas
+
+como Planos de backup.
+
+Você define a frequência, por exemplo,
+
+a cada 12 horas ou semanalmente ou mensalmente
+
+ou qualquer expressão cron que você tenha, a Janela
+
+de backup.
+
+Se você quiser fazer a transição do próprio
+
+backup para o Cold Storage.
+
+Portanto, nunca, ou talvez depois de alguns dias,
+
+algumas semanas, alguns meses ou alguns
+
+anos, e o período de retenção de seu backup.
+
+Portanto, sempre ou em dias, semanas, meses e anos.
+
+Portanto, ele é bastante favorável e abrangente
+
+e suporta a maioria dos serviços, o que
+
+o torna um ótimo complemento para
+
+os serviços da AWS.
+
+Portanto, se dermos uma olhada no AWS Backup, criaremos
+
+um plano de backup, como eu disse, e então
+
+você atribuirá recursos específicos do AWS que são
+
+importantes para você.
+
+Portanto, aqui está uma lista, mas ela pode aumentar.
+
+E, depois de bem feito, automaticamente
+
+seu backup, seus
+
+dados serão copiados para o Amazon S3 em um bucket interno
+
+específico para o AWS Backup.
+
+E outro recurso que você
+
+precisa conhecer no AWS Backup é o Vault Lock.
+
+Portanto, você aplica uma política de leitura WORM, Write Once
+
+Read Many.
+
+Isso significa que todos os backups
+
+que você armazena no Backup Vault não
+
+podem ser excluídos.
+
+Portanto, a ideia é que você tenha certeza
+
+e possa provar que, graças à política
+
+de bloqueio do cofre, não é possível
+
+excluir seus backups.
+
+E fornece uma camada adicional de defesa
+
+para seus backups contra, por exemplo,
+
+operações de exclusão inadvertidas ou mal-intencionadas ou atualizações
+
+que encurtam ou alteram o período
+
+de retenção.
+
+E mesmo o próprio usuário root não pode excluir
+
+backups quando ativado.
+
+Portanto, ele lhe dá fortes garantias sobre a segurança
+
+de seus backups.
+
+Pronto, isso é tudo o que você precisa
+
+saber sobre o serviço AWS Backup.
+
+Espero que tenham gostado
+
+e nos veremos na próxima palestra.
+
+Instrutor: Ok, então vamos praticar o uso do AWS Backup.
+
+Então, vou digitar AWS Backup na barra de pesquisa e abrir
+
+o serviço de backup.
+
+Portanto, vamos criar nosso primeiro plano de backup.
+
+Então, vou clicar em Create Backup plan (Criar plano de backup).
+
+E temos três opções.
+
+Começamos com um modelo ou criamos um novo plano, ou
+
+definimos um plano usando JSON.
+
+Portanto, o mais simples para nós é começar com um modelo, e podemos
+
+ter modelos diferentes.
+
+Por exemplo, Daily-35day-Retention (retenção diária de 35 dias), Daily-Monthly-1yr-Retention
+
+(retenção diária mensal de 1 ano) e assim por diante.
+
+Portanto, vamos usar Daily-Monthly-1yr-Retention,
+
+e eu o chamarei de TestPlan.
+
+Em seguida, clicamos em Backup rules (Regras de backup).
+
+E você vê que podemos ter muitas regras de backup
+
+em nossas regras de backup.
+
+Portanto, temos dois: backups diários e mensais.
+
+Portanto, se eu clicar em Daily Backup, como
+
+podemos ver, há um nome de regra.
+
+O cofre de backup é o local para onde o backup está indo.
+
+Portanto, podemos usar um padrão da AWS ou criar
+
+nosso próprio cofre de backup, se quisermos.
+
+A frequência de backup, a janela de backup, quando começar, que
+
+é às 5:00 AM UTC, começa dentro de oito horas, ou você pode personalizá-la,
+
+se quiser.
+
+Se você deseja ou não fazer a transição para o armazenamento
+
+a frio, nunca, depois de alguns dias, semanas, meses ou anos.
+
+E o período de retenção de seu
+
+backup, por exemplo, este é retido por cinco semanas.
+
+Em seguida, também podemos copiar esses backups
+
+para um destino específico.
+
+Por exemplo, outra região para fins de recuperação de desastres.
+
+Portanto, vou salvar essa regra de backup.
+
+E, mensalmente, recebemos algo semelhante, portanto,
+
+ele está indo para o cofre de backup padrão.
+
+É mensal no primeiro dia de cada mês, e
+
+o restante é igual.
+
+Então, na verdade, fazemos a transição desses produtos
+
+para o armazenamento a frio depois de um mês e, em seguida, os mantemos por um ano.
+
+Pronto, já temos tudo pronto e, então,
+
+posso rolar a tela para baixo e clicar em criar plano.
+
+Portanto, agora nosso plano de teste foi criado e precisamos
+
+atribuir recursos a ele.
+
+Então, vou clicar em atribuir recursos
+
+e vou chamá-lo de TestAssignments.
+
+Portanto, aqui para a função
+
+IAM, usaremos a função padrão,
+
+que criará uma função para nós com as permissões
+
+corretas, ou você pode escolher a sua própria, mas
+
+vamos usar a função padrão, fácil.
+
+E, para a seleção de recursos,
+
+há duas coisas que podemos fazer.
+
+Em primeiro lugar, podemos incluir todos os tipos de recursos ou, em segundo
+
+lugar, podemos incluir tipos de recursos específicos.
+
+Por exemplo, se você quisesse ter apenas uma tabela do DynamoDB
+
+e depois selecionar o recurso desejado nela, poderia
+
+fazer isso.
+
+Ou, se você quiser, pode ter todas as mesas.
+
+Portanto, essa é uma maneira de fazer isso.
+
+Ou, se você optar por todos os tipos de recursos, normalmente
+
+usaremos isso como uma combinação com tags.
+
+Assim, no caso das tags, você
+
+diria: "Bem, se o ambiente principal for igual à produção de valor, então
+
+faça um backup".
+
+Esse seria o tipo de caso de uso para backups,
+
+mas você é livre para fazer o que quiser, é claro.
+
+E, quando terminar, clique em atribuir recursos.
+
+Então, só para deixar bem claro,
+
+se eu entrasse no EC2 e criasse um volume EBS, esse
+
+volume teria, por exemplo, um gigabyte
+
+e a chave seria environment production.
+
+Em seguida, o backup seria feito automaticamente pelo meu plano de backup
+
+porque ele tem as tags corretas.
+
+Portanto, se olharmos para o nosso volume
+
+agora e entrarmos nas tags,
+
+como podemos ver, ele tem o ambiente de produção,
+
+que corresponde às tags que configurei para
+
+o meu plano de backup, certo?
+
+Portanto, essas são as atribuições aqui.
+
+E também podemos ter várias atribuições aqui. Está bem?
+
+E então é isso.
+
+O plano de backup será executado automaticamente
+
+e, em seguida, os backups ocorrerão aqui
+
+em meus cofres de backup, certo?
+
+Os trabalhos são os trabalhos que serão agendados e que
+
+acontecerão.
+
+Portanto, temos trabalhos de backup,
+
+restauração e cópia, se quisermos.
+
+Em seguida, podemos examinar as configurações.
+
+Portanto, as configurações estão relacionadas
+
+a se você deseja ter políticas de backup, monitoramento
+
+entre contas, backups entre contas
+
+e assim por diante.
+
+Mas já vimos os princípios básicos de como os backups funcionam.
+
+E é isso.
+
+Quero lhe mostrar tudo isso, ok?
+
+Isso é tudo o que você precisa saber.
+
+E vou excluir tudo.
+
+Portanto, para isso, certifique-se de excluir o volume do EBS ou
+
+aguarde um dia se
+
+quiser ver se os backups funcionam, obviamente.
+
+E, quando terminar, você
+
+pega as atribuições e as exclui.
+
+Portanto, digite o nome da atribuição aqui e, em seguida, para as regras de
+
+backup diário, você pode excluí-las
+
+ou excluir diretamente o plano de backup.
+
+Para isso, basta digitar o nome do plano de backup
+
+e pressionar delete.
+
+E é isso.
+
+Já vimos backups.
+
+Espero que tenham gostado e nos veremos na próxima palestra.

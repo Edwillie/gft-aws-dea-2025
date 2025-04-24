@@ -1,0 +1,321 @@
+Instrutor: A seguir, vamos apresentar
+
+uma visão geral muito rápida e intencionalmente incompleta
+
+da modelagem de dados.
+
+O guia do exame diz, bem, que
+
+você precisa saber o que é modelagem de
+
+dados, mas não fala sobre modelos de dados específicos,
+
+portanto, não aborda esquemas em estrela
+
+e esquemas em floco de neve.
+
+Por isso, não se aprofunde muito aqui, mas apenas
+
+uma breve revisão.
+
+Então, bem, aqui está um esquema de estrela. Está bem?
+
+Então, vamos imaginar que temos um banco de dados que mantém
+
+o controle das informações
+
+em alguma plataforma de e-learning, como
+
+a Udemy ou algo assim, certo?
+
+Talvez você tenha uma tabela de fatos no centro, que contém
+
+um ID de curso, um ID de aluno, um ID de pagamento e a data e hora em que o pedido
+
+foi feito, sempre que um aluno se matricular
+
+em um determinado curso.
+
+Agora, essa tabela de fatos pode se espalhar pelas
+
+tabelas de dimensões, certo?
+
+Portanto, como temos esse tipo de tabela de dimensão pendurada nessa tabela de fatos,
+
+ela tem um pouco o formato de uma estrela.
+
+Chamamos isso de esquema em estrela.
+
+Portanto, o ID do curso pode ser
+
+usado para vincular-se a uma tabela de dimensão do
+
+curso que tenha o mesmo ID do curso.
+
+E para um determinado ID de curso, podemos
+
+procurar mais informações sobre esse curso.
+
+O nome, a descrição, o instrutor
+
+e o preço do curso.
+
+Talvez o ID do aluno vincule a tabela de fatos
+
+a uma tabela de dimensão do aluno.
+
+Assim, com um ID de aluno, posso procurar em Dim_Student
+
+o nome do aluno, o endereço, o e-mail, talvez o cartão
+
+de crédito salvo.
+
+E, finalmente, para o ID de pagamento,
+
+talvez isso esteja vinculado a uma dimensão de pagamento
+
+que contenha o valor do tipo de pagamento, que tipo de
+
+imposto foi coletado, o código de autorização que veio do processador
+
+de pagamento, o que quer que seja.
+
+Portanto, a ideia é que
+
+tenhamos essas chaves primárias e estrangeiras
+
+que vinculam essas tabelas de dimensão
+
+às tabelas de fatos, de modo que possamos minimizar a quantidade
+
+de informações que temos de armazenar com cada registro e ter
+
+apenas as especificidades dessas coisas nessas tabelas de dimensão
+
+externa.
+
+Então, o básico da modelagem de dados, certo?
+
+Portanto, temos tabelas de fatos.
+
+Temos dimensões que são vinculadas
+
+por chaves primárias e estrangeiras.
+
+Chamamos esse tipo de diagrama
+
+de diagrama entidade-relacionamento ou, abreviadamente, ERD.
+
+Talvez você queira se lembrar disso.
+
+Vamos falar também sobre o conceito de linhagem de dados.
+
+Isso também pode aparecer no exame.
+
+Então, o que queremos dizer com linhagem de dados?
+
+É uma representação visual que rastreia o fluxo e a transformação
+
+de dados por meio de seu ciclo de vida, desde
+
+a origem até o destino final.
+
+Portanto, como engenheiro de dados, você vai extrair dados.
+
+Você estará transformando-o.
+
+Você vai carregá-lo em alguns lugares.
+
+Ele será empurrado para todos os lados
+
+e transformado de diferentes maneiras.
+
+A ideia de linhagem de dados é ter algum tipo de registro do que
+
+você fez ao longo do caminho.
+
+É isso aí.
+
+Então, por que você precisaria disso?
+
+Bem, se houver algum tipo de erro no caminho,
+
+se algo estiver sendo transformado incorretamente,
+
+isso pode ser útil para rastrear esse erro
+
+até a origem.
+
+Se você tiver esse registro
+
+do que aconteceu com esses dados durante o percurso,
+
+talvez isso possa ajudá-lo a solucionar
+
+problemas com o pipeline.
+
+Isso também pode ser necessário para a conformidade com
+
+diferentes regulamentações, você sabe.
+
+Talvez você esteja
+
+lidando com algum tipo de dado realmente sensível
+
+ou seguro, com leis que envolvem esses dados, e elas podem
+
+exigir que você mantenha registros
+
+detalhados de como eles foram transformados.
+
+Mas, de modo mais geral, ele apenas fornece uma compreensão
+
+clara de como os dados foram movidos, transformados
+
+e consumidos nos sistemas.
+
+Documentação é uma coisa boa, certo?
+
+Portanto, se alguém novo estiver
+
+entrando na empresa e quiser entender como seus dados são transformados
+
+e movimentados à medida que passam pelo pipeline,
+
+essa é uma maneira fácil de se atualizar.
+
+Aqui está um exemplo de linhagem de dados no contexto da AWS.
+
+A fonte disso é um artigo de blog da aws. amazônico. com, e só menciono
+
+isso porque os exames
+
+tendem a gostar de perguntas baseadas
+
+em artigos obscuros de blogs.
+
+Portanto, é bom lê-los sempre que possível.
+
+Neste exemplo específico,
+
+eles estão ilustrando a criação de linhagem de
+
+dados usando algo chamado Spline Agent,
+
+que é um Apache Spark conectado ao AWS Glue.
+
+Portanto, neste caso, estamos ingerindo
+
+nossos dados usando o AWS Glue do S3.
+
+O Glue está transmitindo dados sobre esses dados brutos
+
+do S3 no Glue Data Catalog e também
+
+transformando-os como parte de um pipeline de ETL.
+
+Portanto, nesse caso de uso específico,
+
+temos algo chamado Spline Agent conectado ao Glue para capturar
+
+o que ele está fazendo ao longo do caminho.
+
+E ele tem o que chamamos de Lineage API, que
+
+podemos consumir diretamente usando as ferramentas do
+
+Spline e obter essas belas visualizações.
+
+Mais adiante, veremos outra ferramenta chamada SageMaker
+
+Lineage que faz a mesma coisa.
+
+Mas, neste exemplo, estamos
+
+usando essa ferramenta de terceiros, o Spline Agent.
+
+Talvez você queira pegar esses dados
+
+e armazená-los em nossos próprios sistemas também.
+
+Nesse caso, aqui na parte inferior, podemos
+
+dizer que estamos usando o AWS e o Lambda para consumir essas
+
+informações do Spline.
+
+Em seguida, estamos escrevendo no Amazon Neptune,
+
+que é um banco de dados de gráficos.
+
+E, como vimos, as linhagens de dados têm esse formato de gráfico,
+
+essa estrutura de gráfico.
+
+Portanto, um banco de dados de gráficos parece ser um local razoável
+
+para armazenar isso.
+
+E, em seguida, podemos consultar o Amazon
+
+Neptune usando as ferramentas externas que quisermos.
+
+Portanto, um exemplo de como lidar com a linhagem de dados no AWS.
+
+Vamos falar também sobre a evolução do esquema.
+
+O que queremos dizer com isso?
+
+Novamente, é um termo que aparece no guia do exame.
+
+Por evolução do esquema, queremos dizer a capacidade de
+
+adaptar e alterar o esquema de um conjunto de dados ao longo do
+
+tempo sem interromper os processos ou sistemas existentes.
+
+Falamos sobre isso antes
+
+como uma espécie de ponto forte dos lagos de
+
+dados, pois não estamos preparando esse formato antecipadamente.
+
+Isso garante que os sistemas de dados possam se adaptar
+
+às mudanças nos requisitos comerciais, o que acontece com frequência.
+
+Você sabe que não quer voltar
+
+e lidar com migrações de dados
+
+toda vez que tiver um novo requisito.
+
+E permite que você adicione, remova ou modifique colunas
+
+e campos em um conjunto de dados, conforme necessário, sem interromper
+
+todos os seus sistemas existentes.
+
+Dessa forma, é possível ter compatibilidade retroativa com
+
+registros de dados mais antigos e introduzir novos dados, novos campos ou modificar
+
+campos ao longo do tempo sem quebrar o material antigo.
+
+Portanto, é isso que queremos dizer com evolução de esquema, apenas
+
+a capacidade de alterar seu esquema ao longo do tempo sem quebrar
+
+as coisas ao longo do caminho.
+
+Um exemplo disso é o Glue Schema Registry.
+
+Trata-se de uma ferramenta de descoberta, compatibilidade, validação
+
+e registro de esquemas.
+
+Assim, o Glue pode gerenciar diferentes
+
+versões de seu esquema ao longo do tempo e garantir a compatibilidade com versões
+
+anteriores de seus dados, se necessário.

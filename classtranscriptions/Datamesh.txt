@@ -1,0 +1,153 @@
+Instrutor: Vamos falar de uma palavra da moda
+
+mais recente no mundo da engenharia de dados, que é a malha de dados.
+
+O exame pode esperar que você saiba o que esse termo significa,
+
+pelo menos, se não em maior profundidade.
+
+Na verdade, não se trata tanto de tecnologia.
+
+Trata-se mais de organização e gerenciamento
+
+e de como você estrutura o acesso e a propriedade
+
+dos dados em uma organização maior.
+
+Portanto, trata-se mais de governança
+
+e organização do que de tecnologias reais.
+
+A ideia, porém, é que as equipes individuais sejam proprietárias
+
+de seus próprios dados.
+
+Portanto, se uma determinada equipe ou departamento
+
+ou o que quer que seja em sua organização for
+
+especialista em um determinado tipo de dados, ou se eles coletarem
+
+esses dados, ou se essa for a responsabilidade
+
+deles, eles serão responsáveis por manter esses dados e também
+
+por oferecê-los como um produto de dados para outras organizações,
+
+outras equipes, outros departamentos
+
+dentro da organização maior.
+
+Portanto, é uma espécie de mundo descentralizado em que os dados pertencem
+
+às equipes que mais sabem sobre eles, mas há alguns
+
+princípios centrais de organização sobre como esses dados
+
+são acessados e controlados, certo?
+
+Agora, fora de cada domínio de dados, que pode ser
+
+uma equipe específica que possui
+
+um conjunto específico de produtos de dados, pode haver
+
+casos de uso em toda a organização que precisam acessar
+
+esses dados.
+
+Portanto, talvez haja alguém fora dessa equipe específica
+
+que precise fazer uma
+
+análise que envolva produtos de dados de vários domínios de dados.
+
+Esse é um caso de uso que pode se conectar
+
+em vários domínios de dados aos produtos de dados oferecidos
+
+por esses domínios.
+
+Assim, as pessoas com um caso de uso para um problema de análise de dados
+
+não precisam acessar os dados brutos para tudo.
+
+Eles podem simplesmente acessar esses
+
+produtos de dados que são expostos por domínios de dados individuais.
+
+Isso às vezes é chamado de gerenciamento de dados baseado em domínio.
+
+E não é de surpreender que isso tenha se popularizado
+
+e ganhado força dentro da Amazon porque,
+
+bem, é assim que a própria Amazon tem sido estruturada
+
+internamente desde que me lembro.
+
+Eles sempre tiveram essa abordagem descentralizada, em
+
+que têm um conjunto de princípios de governança, mas as equipes
+
+individuais são donas de suas próprias coisas na maior parte do tempo.
+
+No entanto, você precisa ter uma governança federada
+
+com padrões centrais.
+
+Portanto, cada um desses domínios é responsável
+
+por manter a integridade e a segurança desses dados e garantir
+
+que os controles de acesso estejam
+
+em vigor conforme apropriado, aplicando
+
+padrões centrais a eles.
+
+Além disso, a Amazon, é claro, adora esse conceito porque
+
+o AWS é uma boa solução para implementar
+
+uma malha de dados, certo?
+
+Portanto, você pode imaginar o uso de algo como o Lake Formation
+
+para organizar como esses dados são realmente gerenciados, armazenados
+
+e acessados, e também para gerenciar as permissões para esses dados diferentes
+
+de grupos diferentes, certo?
+
+E talvez o AWS Glue seja usado como um catálogo de dados centralizado para que
+
+as pessoas possam ver quais produtos de dados estão disponíveis.
+
+Ele também exige ferramentas e infraestrutura de autoatendimento.
+
+Portanto, pressupõe-se que esses diferentes domínios
+
+não sejam deixados por conta própria, que
+
+exista algum tipo de infraestrutura de interesse para
+
+que eles criem esses produtos de dados.
+
+E, novamente, é aí que a AWS pode entrar.
+
+Os data lakes, data warehouses, S3, Glue, Lake Formation, o que quer que seja, podem fazer
+
+parte de uma malha de dados, mas uma malha de dados tem mais a ver
+
+com o paradigma de gerenciamento de dados, ou seja, as preocupações
+
+de nível mais alto sobre quem é o proprietário dos
+
+dados, quem os mantém, como são acessados, como
+
+são distribuídos em uma organização maior.
+
+Ele não prescreve uma tecnologia ou arquitetura
+
+específica, mas a AWS pode ser uma delas.

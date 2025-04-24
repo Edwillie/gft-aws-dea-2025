@@ -1,0 +1,555 @@
+Instrutor: Vamos analisar os data warehouses e os data lakes.
+
+E como eles diferem entre si e quando
+
+você pode escolher um em vez do outro?
+
+Começaremos com os data warehouses.
+
+Esse é o tipo de abordagem herdada da engenharia de dados.
+
+É um repositório centralizado, otimizado
+
+para análise, em que os dados
+
+de diferentes fontes são armazenados em
+
+um formato estruturado.
+
+Portanto, o formato estruturado é a chave aqui, certo?
+
+Portanto, já o temos, bem definido
+
+em um tipo de banco
+
+de dados relacional tradicional, é o
+
+que tudo isso significa.
+
+Eles foram projetados para consultas e análises complexas.
+
+Os dados são limpos, transformados e carregados.
+
+Portanto, estamos usando um processo
+
+de ETL (extração, transformação e carregamento) para
+
+obter esses dados.
+
+Falaremos mais sobre isso em breve.
+
+Normalmente, ele é armazenado em um esquema estrela ou floco de neve e
+
+falaremos um pouco mais sobre isso quando
+
+abordarmos a modelagem de dados.
+
+E é otimizado para operações de leitura pesada.
+
+Portanto, o data warehouse foi projetado
+
+apenas para coletar um monte de dados, grandes quantidades de
+
+dados, talvez de diferentes fontes,
+
+e organizá-los de forma que
+
+possam ser consultados com eficiência
+
+para diferentes aplicativos no final do dia.
+
+Alguns exemplos de data warehouses para AWS, que
+
+serão o Amazon Redshift.
+
+É a principal oferta de data warehouse da empresa.
+
+E, obviamente, o exame não vai perguntar
+
+sobre o Google BigQuery ou o Microsoft Azure SQL Data Warehouse, mas essas
+
+são as tecnologias equivalentes nessas outras
+
+plataformas sobre as quais não falamos.
+
+E quando eu trabalhava na Amazon,
+
+antes mesmo de o Redshift existir, usávamos
+
+um banco de dados Oracle gigante para esse processo
+
+e ele era extremamente caro e difícil de manter,
+
+devo acrescentar.
+
+Aqui está um exemplo conceitual de um data warehouse.
+
+Vamos imaginar que somos a Amazon novamente e
+
+temos um grande e antigo data warehouse
+
+que ingere informações de várias fontes diferentes.
+
+Então, talvez tenhamos um repositório de dados de fluxo de
+
+cliques que esteja saindo do nosso registro bruto do servidor em
+
+algum lugar e sendo pré-processado.
+
+Talvez também tenhamos dados de compra,
+
+quem está realmente fazendo pedidos e o que está comprando?
+
+E os dados de catálogo, quais são as informações
+
+reais sobre esses itens depois que eles são comprados?
+
+Portanto, você pode imaginar
+
+que todos eles se referem uns aos outros, certo?
+
+Portanto, os dados de compra e os dados de fluxo de cliques provavelmente
+
+precisam estar vinculados a esses dados de catálogo para entender
+
+em que as pessoas estão clicando e o que estão comprando?
+
+Todos esses dados são jogados
+
+em um grande, velho e gigantesco depósito de dados.
+
+E esse data warehouse pode ter diferentes visualizações, disponibilizadas
+
+para diferentes tipos de consultas ou diferentes
+
+aplicativos.
+
+Portanto, um tamanho único não serve para todos.
+
+Você desejará um subconjunto diferente dessas informações
+
+em índices diferentes, talvez para aplicativos
+
+diferentes e consultas diferentes que você queira
+
+fazer.
+
+Assim, talvez a contabilidade tenha uma visão do data warehouse
+
+que inclua informações de que outras pessoas não precisam.
+
+As pessoas que fazem apenas análises sobre o comportamento
+
+do cliente podem ter outra visão com seu próprio data mart,
+
+se preferir.
+
+E, talvez, se eu quiser fazer o aprendizado
+
+de máquina com essas informações,
+
+isso também tem seu próprio data mart, onde posso
+
+fazer grandes extrações de informações sobre o comportamento do consumidor para
+
+treinar um modelo de aprendizado de máquina, por exemplo, em um mecanismo de
+
+recomendação.
+
+Agora, vamos comparar isso com um lago de dados, em
+
+oposição a um data warehouse.
+
+Um lago de dados é apenas um grande e antigo repositório de armazenamento que contém
+
+uma grande quantidade de dados brutos em seu formato nativo, que pode incluir
+
+dados estruturados, semiestruturados
+
+e não estruturados.
+
+"Então, estamos apenas jogando todos esses dados em um único lugar e vamos
+
+descobrir isso mais tarde",
+
+é mais ou menos a abordagem aqui.
+
+Assim, podemos armazenar grandes volumes de dados brutos
+
+sem um esquema predefinido.
+
+Os dados são carregados como estão.
+
+Não o pré-processamos antecipadamente.
+
+E se o fizermos, será mínimo.
+
+Isso pode suportar processamento em lote, em tempo real ou em fluxo
+
+e pode ser consultado
+
+para fins de transformação ou exploração de dados.
+
+Um exemplo seria o Amazon S3.
+
+Quando você usa isso como um lago de dados,
+
+pode simplesmente jogar todas as suas
+
+coisas lá, todos os seus registros, todas as informações que tiver.
+
+E, posteriormente, podemos extrair
+
+a estrutura disso usando outra ferramenta.
+
+Portanto, com o lago de dados, estamos apenas armazenando os dados brutos.
+
+Mais adiante, resolveremos
+
+o problema de estruturação e consulta desses dados.
+
+No caso do AWS, geralmente
+
+esse pipeline parece usar
+
+algo como o AWS Glue para extrair uma
+
+estrutura e um esquema dos dados
+
+não estruturados que estão no S3.
+
+E, em seguida, ferramentas como o Amazon
+
+Athena e outras podem usar esse catálogo de dados do Glue para
+
+descobrir qual é a estrutura desses dados e como consultá-los.
+
+Mas os dados em si são sempre armazenados em seu formato bruto.
+
+Não estamos replicando esses dados, não estamos
+
+colocando-os em um banco de dados relacional.
+
+Ele é armazenado como está no S3.
+
+E se estivermos falando de outras plataformas concorrentes,
+
+o Azure Data Lake ou o HDFS no ecossistema Hadoop seriam locais alternativos
+
+para armazenar os dados do seu data lake.
+
+Vamos comparar os dois mais especificamente.
+
+Então, novamente, em relação ao esquema,
+
+com um data warehouse, é o
+
+que chamamos de esquema na gravação.
+
+Sabemos qual é o nosso esquema,
+
+qual é a estrutura desses dados antes
+
+de gravá-los no disco.
+
+Portanto, quando estivermos processando as informações
+
+do data warehouse, extrairemos os dados da fonte,
+
+os transformaremos no esquema que conhecemos de antemão e, em seguida,
+
+os carregaremos em nosso banco de dados, ao contrário
+
+de um data lake, que é um esquema de leitura.
+
+Não sabemos qual é essa estrutura
+
+até lermos os dados brutos.
+
+Portanto, com um lago
+
+de dados, em vez de ETL, fazemos ELT, extração, carregamento e transformação.
+
+Extraímos as informações de sua fonte, carregamos
+
+no S3 ou em qualquer outro lugar e as transformamos
+
+posteriormente, quando necessário.
+
+Podemos ter vários tipos de transformações acontecendo
+
+nesses dados brutos para diferentes tipos de aplicativos.
+
+Mas os dados em si são armazenados em seu formato bruto.
+
+Essa é a principal diferença.
+
+O data warehouse armazena dados estruturados e transformados.
+
+O data lake é apenas o armazenamento dos dados brutos em sua forma original.
+
+Os data warehouses, mais uma vez, são mais apropriados
+
+para dados estruturados quando você sabe o que tem.
+
+Os data lakes podem lidar com dados estruturados e não estruturados.
+
+Portanto, não importa o que você coloque no S3, pode ser qualquer coisa.
+
+É apenas um armazenamento de objetos, certo?
+
+Agilidade, os data warehouses
+
+tendem a ser menos flexíveis, porque você
+
+tem aquele esquema predefinido.
+
+E, às vezes, você muda de ideia sobre o que é esse esquema.
+
+E, quando você faz isso,
+
+geralmente envolve algum projeto de migração de
+
+big data que implica tempo de inatividade do data warehouse
+
+e pessoas muito caras para
+
+garantir que tudo corra bem.
+
+Ao contrário de um lago de dados, como estamos
+
+apenas pegando dados brutos e
+
+não sabemos realmente
+
+qual é a estrutura ou não nos importamos com antecedência,
+
+você pode continuar jogando mais coisas lá dentro
+
+e talvez mudar esse esquema ao longo do tempo e lidar com isso
+
+em uma camada acima de tudo.
+
+Dessa forma, é um pouco mais ágil.
+
+Apenas para reforçar,
+
+os data warehouses normalmente usam um pipeline de ETL em que
+
+extraímos informações, transformamos e, em seguida,
+
+carregamos no sistema em um banco de dados em seu estado transformado,
+
+ao contrário dos data lakes, que usam ELT em que estamos apenas
+
+carregando coisas em sua forma bruta,
+
+ou talvez estejamos apenas carregando coisas para
+
+fins de armazenamento.
+
+E descobriremos se queremos fazer algo com ele
+
+e o analisaremos mais tarde.
+
+Talvez só queiramos guardá-lo em algum lugar.
+
+Isso ainda é um lago de dados.
+
+Os data warehouses tendem a ser mais caros, porque,
+
+bem, A, são necessárias mais pessoas e ferramentas
+
+mais caras para fazer
+
+toda essa transformação e estruturação.
+
+E precisamos otimizar mais isso para consultas complexas.
+
+Portanto, é preciso pensar muito
+
+mais em como esses dados são organizados para garantir
+
+um processamento e uma consulta rápidos posteriormente.
+
+Os lagos de dados podem ser mais econômicos,
+
+coisas como o S3 são bem baratas.
+
+Mas se você tiver grandes quantidades de dados, isso pode
+
+aumentar rapidamente, é claro, como acontece com qualquer coisa.
+
+Como você escolhe um em vez do outro?
+
+Portanto, apenas para recapitular, use o data warehouse
+
+se você tiver fontes de dados estruturados.
+
+Você sabe qual é esse esquema de antemão.
+
+E você precisa de consultas rápidas e complexas.
+
+Portanto, como você conhece esse esquema,
+
+sabe quais índices criar, sabe
+
+como otimizar essas consultas antecipadamente.
+
+A integração de dados de diferentes fontes é essencial.
+
+Portanto, seu data warehouse normalmente ingere dados de
+
+diferentes fontes, caso
+
+contrário, é apenas um banco de dados.
+
+E o business intelligence e a análise são os
+
+principais casos de uso de um data warehouse.
+
+Os data lakes serão apropriados quando você tiver uma mistura
+
+de dados estruturados, semiestruturados ou não estruturados.
+
+Talvez você precise de algo mais escalável, mais econômico,
+
+porque você tem uma quantidade enorme desses dados.
+
+E talvez você não saiba realmente o que fará
+
+com esses dados no futuro.
+
+Quero dizer, acho que esse é geralmente o caso, certo?
+
+Portanto, esse lago de dados traz mais flexibilidade
+
+de armazenamento e processamento no futuro.
+
+Você não precisa recarregar tudo, só
+
+porque quer analisar os dados de uma maneira diferente.
+
+Os lagos de dados são normalmente usados com sistemas avançados
+
+de análise, aprendizado de máquina e descoberta de dados.
+
+Portanto, é muito comum ter um data lake
+
+de dados brutos de registro, dados brutos de comportamento, o que quer que seja.
+
+Extraia isso em recursos para aprendizado
+
+de máquina e treine um modelo, coisas desse tipo.
+
+Às vezes, você usa os dois, certo?
+
+Portanto, não há problema em ter um data warehouse e um data lake.
+
+Você pode até ter os mesmos dados em cada um deles
+
+para aplicativos diferentes, certo?
+
+Assim, talvez você armazene os dados brutos em um lago de dados e tenha
+
+mais flexibilidade para fazer o que quiser com eles.
+
+Mas, se você quiser fazer coisas de BI e análises, talvez
+
+também carregue esses dados em um data warehouse que seja mais
+
+otimizado para esses casos de uso.
+
+Portanto, não se trata necessariamente de uma escolha de um ou outro tipo.
+
+É mais uma questão de ter a ferramenta certa para
+
+o trabalho certo, certo?
+
+Uma outra opção é chamada de data lakehouse.
+
+Isso foi popularizado pelo mundo do Databricks.
+
+Sua definição é uma arquitetura de dados híbrida, que combina
+
+o melhor dos dois mundos.
+
+Portanto, temos os melhores
+
+recursos de data lakes e data warehouses, tentando
+
+oferecer o desempenho, a confiabilidade
+
+e os recursos de um data warehouse, mantendo a flexibilidade, a escala e o armazenamento
+
+de baixo custo dos data lakes.
+
+Portanto, um data lakehouse também suporta dados estruturados
+
+e não estruturados.
+
+Ele permite o esquema na gravação e o esquema na leitura e oferece recursos
+
+para tarefas de análise
+
+detalhada e de aprendizado de máquina.
+
+Normalmente, ele é construído sobre
+
+a nuvem ou sobre arquiteturas distribuídas, como a AWS.
+
+E ele pode se beneficiar de coisas como o Delta
+
+Lake, que traz transações ACID para o big data.
+
+E falaremos sobre o ACID um pouco mais adiante.
+
+Basicamente, são as promessas que um banco de dados faz sobre como
+
+esses dados são processados e tratados.
+
+Alguns exemplos: o AWS Lake Formation usado em conjunto
+
+com o S3 e o Redshift Spectrum é um exemplo de
+
+um data lakehouse em que temos
+
+uma grande e antiga bolha de dados no S3, mas estamos usando o Redshift
+
+Spectrum para consultá-la, como se fosse um data
+
+warehouse.
+
+Mas o armazenamento subjacente não é estruturado.
+
+Na verdade, ele está atingindo o S3 sob o capô.
+
+Portanto, é uma espécie de novo
+
+híbrido entre um data warehouse e um data lake.
+
+Esse parece ser o rumo
+
+que o mundo está tomando no momento.
+
+O Delta Lake foi desenvolvido com base no Apache Spark.
+
+Databricks Lakehouse Platform, outro
+
+e Azure Synapse Analytics.
+
+Não vou falar muito sobre esses três
+
+últimos, porque eles não são sobre a AWS.
+
+E, portanto, você não os verá no exame,
+
+eu acho.
+
+(Risos do instrutor)
+
+Mas o AWS Lake Formation
+
+com o S3 e o Redshift Spectrum é definitivamente um caso de
+
+uso ao qual você deve prestar atenção durante o curso.

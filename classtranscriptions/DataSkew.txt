@@ -1,0 +1,223 @@
+Instrutor: Muito bem, sei que
+
+você está ansioso para entrar nos serviços da AWS.
+
+Estou tentando levá-lo até lá o mais
+
+rápido possível, mas o guia do exame fala sobre distorção de dados.
+
+Você também precisa saber o que é isso,
+
+e não se trata de algo específico da AWS.
+
+O que queremos dizer com distorção de dados?
+
+Bem, isso pode significar
+
+algumas coisas, mas geralmente se refere
+
+à distribuição desigual entre partições.
+
+Falamos anteriormente sobre o particionamento
+
+como uma otimização de banco de dados,
+
+em que armazenamos diferentes segmentos de nossos dados em diferentes armazenamentos
+
+físicos ou em diferentes tabelas, para garantir que possamos processá-los com
+
+mais eficiência e em paralelo.
+
+Portanto, a distorção é o que acontece quando esse
+
+particionamento é desequilibrado.
+
+Portanto, temos um desequilíbrio de dados entre
+
+os nós ou partições em um sistema de computação que é distribuído
+
+de alguma forma.
+
+Às vezes, chamamos isso de problema da celebridade.
+
+Portanto, o particionamento não funciona se o tráfego for irregular.
+
+Não é possível particionar o material
+
+de maneira uniforme se o tráfego de entrada não for o mesmo.
+
+Vamos dar um exemplo, certo?
+
+Então, imagine que eu sou o
+
+IMDb, um banco de dados que trata de atores e filmes, certo?
+
+Talvez eu simplesmente pegue o ID do ator quando estiver
+
+tentando armazenar informações sobre
+
+cada ator, faça um hash e use isso para distribuir as informações
+
+em diferentes partições sob o capô.
+
+Bem, isso parece muito bom, mas
+
+alguns atores recebem muito mais tráfego do que outros, certo?
+
+Então, imagine que temos o Brad Pitt.
+
+Qualquer que seja a partição para a
+
+qual ele se inscreve, provavelmente terá
+
+muito mais tráfego do que um ator
+
+obscuro de um filme de 30 anos atrás, certo?
+
+Portanto, neste exemplo, o problema da celebridade, uma
+
+celebridade como Brad Pitt
+
+sobrecarregará a partição em que ele
+
+está, pois receberá muito mais
+
+tráfego do que outras partições, devido a essa popularidade.
+
+Novamente, o problema fundamental
+
+aqui é que o tráfego é desigual em comparação
+
+com os dados que chegam.
+
+Isso pode ser causado por uma distribuição não uniforme dos dados.
+
+Portanto, novamente, se estivermos apenas particionando
+
+uniformemente com base em um hash de algum ID, isso pode não ser consistente
+
+com a forma como os dados são realmente distribuídos quando
+
+estão sendo lidos.
+
+Nossa estratégia de particionamento pode ser inadequada
+
+ou pode haver uma distorção temporal, certo?
+
+Outro problema é se os dados estiverem
+
+crescendo rapidamente ao longo do tempo e você
+
+estiver particionando apenas por mês ou por ano ou algo assim,
+
+certo?
+
+Portanto, talvez seus dados de cinco anos
+
+atrás sejam muito menores do que os dados atuais, e isso resultará
+
+no que chamamos de distorção temporal, em que as partições
+
+mais recentes serão muito maiores
+
+do que as partições mais antigas.
+
+Isso acontece o tempo todo.
+
+Portanto, é importante monitorar a distribuição
+
+de seus dados e ter algum tipo de alerta quando essa distorção surgir.
+
+Portanto, se a distorção começar a se tornar um problema,
+
+você deve se certificar de que está monitorando isso, de que
+
+está ciente disso, de que está recebendo alarmes, sabe, CloudWatch,
+
+todas essas coisas, certo?
+
+Portanto, falaremos sobre isso mais adiante no curso.
+
+Mas o problema fundamental da distorção de dados
+
+é que os dados estão sendo
+
+acessados de maneira desigual
+
+e não correspondem às suposições que você
+
+fez ao particionar esses dados.
+
+Como você conserta isso? Há algumas maneiras.
+
+Eu não me preocuparia em memorizar essas diferentes
+
+soluções para o exame, porque elas não vêm realmente
+
+da documentação da AWS, mas
+
+apenas para que você conheça algumas possíveis
+
+soluções.
+
+Um deles é chamado de particionamento adaptativo,
+
+no qual você ajusta dinamicamente suas partições
+
+com base na distribuição observada ao longo do tempo.
+
+Portanto, é possível repartir as coisas em tempo real com base no que você
+
+está realmente observando.
+
+Os balanceadores de carga funcionam muito bem dessa forma, certo?
+
+Salting, a ideia é que você tenha algum valor aleatório que é introduzido antes
+
+da chave de partição, e isso pode ser útil
+
+para distribuir as coisas de maneira
+
+mais uniforme.
+
+Talvez você queira voltar e reparticionar
+
+as coisas periodicamente, essa é uma solução, mas é uma solução muito disruptiva.
+
+Se você voltar e embaralhar
+
+todos os seus dados enquanto ainda estiver
+
+tentando ler esses dados, isso
+
+pode ficar feio.
+
+Portanto, eu tentaria evitar essa situação, se possível.
+
+A amostragem é outra solução.
+
+Então, talvez você apenas faça uma
+
+amostragem dos dados para tentar determinar qual é
+
+a distribuição real e ajustar seu processamento de acordo.
+
+Talvez isso seja apenas parte
+
+de sua abordagem de particionamento adaptável, certo?
+
+E particionamento personalizado.
+
+Talvez você defina regras ou funções personalizadas
+
+para os dados de particionamento com base no conhecimento do domínio.
+
+Então, talvez você saiba de antemão que o Brad Pitt
+
+vai receber muito tráfego.
+
+Portanto, se for o Brad Pitt, talvez ele tenha sua própria partição.
+
+É uma solução meio hacker, mas é uma solução.
+
+Portanto, essa é a distorção dos dados e algumas maneiras de lidar com ela.

@@ -1,0 +1,307 @@
+Instrutor: Surpreendentemente,
+
+o guia do exame menciona o Git como algo que
+
+você precisa conhecer.
+
+O Git é, obviamente, um sistema de controle de versão
+
+bastante popular atualmente.
+
+Ele meio que tomou conta de tudo.
+
+Portanto, mais uma vez, não vou lhe dar a versão aprofundada do Git
+
+para iniciantes.
+
+Se você nunca usou o Git antes, talvez seja melhor
+
+procurar um curso completo sobre isso em algum lugar.
+
+Há muitos outros bons por aí.
+
+O objetivo é apenas fazer uma rápida revisão
+
+do que o exame espera que você saiba.
+
+Portanto, do ponto de vista arquitetônico, aqui está
+
+um pequeno lembrete de como o Git funciona.
+
+Portanto, podemos ter repositórios
+
+remotos e também repositórios locais, certo?
+
+Um repositório remoto estaria no GitHub, por exemplo,
+
+algo que está em um servidor em algum lugar.
+
+No entanto, localmente, quero desenvolver determinados arquivos
+
+e, você sabe, mexer e fazer coisas de desenvolvedor, certo?
+
+Assim, eu poderia usar o git pull para transferir as coisas para
+
+um repositório local em meu conjunto de trabalho.
+
+Posso usar um clone para realmente criar uma cópia do primeiro e posso
+
+usar ramificações para ter ramificações diferentes
+
+dedicadas a novos recursos específicos.
+
+Posso estar desenvolvendo ou um bug específico que
+
+estou tentando corrigir.
+
+Ao usar minha própria ramificação localmente, isso significa
+
+que posso trabalhar nessas correções independentemente de
+
+todos os outros.
+
+E toda a ideia do Git é permitir que muitos desenvolvedores
+
+trabalhem juntos em coisas ao mesmo tempo, sem
+
+atrapalhar uns aos outros tanto quanto possível.
+
+Quando eu tiver minhas alterações, se quiser adicionar um arquivo, posso
+
+simplesmente usar o comando add na minha área de preparação, confirmar
+
+a adição na minha ramificação e, em seguida, enviar o arquivo de
+
+volta para o repositório remoto quando estiver pronto.
+
+Além disso, posso mesclar coisas de outra ramificação
+
+em meus arquivos de trabalho se quiser mantê-los atualizados com o que
+
+está acontecendo na ramificação
+
+principal ou algo assim, certo?
+
+Portanto, vamos examinar alguns comandos comuns
+
+do git que podem ser solicitados.
+
+Vamos fazer uma pequena listagem do que são todos eles.
+
+Portanto, para configurar um repositório, você pode dizer git init para
+
+inicializar um novo repositório do zero.
+
+Se eu quiser configurar meu nome de usuário, e-mail
+
+e outras coisas, o git config é o comando para isso.
+
+Alguns comandos básicos que você usa com frequência
+
+git clone clonará ou baixará um repositório de um determinado URL.
+
+Portanto, se você quiser clonar um repositório remoto localmente,
+
+o git clone é a primeira coisa a ser feita.
+
+O status do Git é uma forma de verificar quais alterações foram feitas no
+
+diretório de trabalho até o momento.
+
+Portanto, se você quiser saber
+
+o que mudou e se lembrar do que fez, essa é uma
+
+maneira de fazer isso.
+
+O Git add é como você adiciona uma alteração a um
+
+arquivo na área de preparação.
+
+E você também pode dizer que o git add star é uma espécie de curinga para
+
+adicionar todas as suas alterações à área de preparação até o momento.
+
+Quando estiver pronto para fazer o commit
+
+dessas alterações, você pode dizer git commit -m com qualquer que seja a sua
+
+mensagem e o git log exibirá os logs dos commits anteriores.
+
+Novamente, as ramificações são uma forma de trabalhar em paralelo.
+
+A ideia aqui é que você pode ter uma ramificação
+
+para um recurso específico que está sendo desenvolvido
+
+ou algum bug que está tentando corrigir, seja o que for.
+
+Se eu quiser uma lista de todas as ramificações que tenho localmente
+
+e que posso alternar entre elas, o git branch listará todas elas.
+
+Se eu quiser criar uma nova ramificação, posso simplesmente
+
+dizer git branch e o nome que eu quiser dar a essa ramificação.
+
+O checkout do Git o levará para o ramo em que você
+
+deseja trabalhar, certo?
+
+E, especificamente, a opção -b pode ser usada para criar um novo ramo e
+
+mudar para ele ao mesmo tempo,
+
+se você quiser criar um novo ramo.
+
+Merge é como você mescla um ramo com o ramo atual.
+
+Portanto, se eles quiserem pegar as alterações em outro ramo,
+
+como o ramo principal, e garantir que elas sejam
+
+incorporadas ao que estou trabalhando, o git merge fará isso para você.
+
+Além disso, o git branch -d é usado para excluir um branch quando
+
+você termina de usá-lo.
+
+Ao trabalhar com repositórios remotos,
+
+você pode dizer git remote add name e, em seguida, o URL para ele.
+
+Isso adicionará um repositório remoto a um servidor em algum lugar.
+
+O Git remote listará todos os repositórios remotos
+
+com os quais você está trabalhando,
+
+e o git push pode ser usado para enviar sua ramificação local para esse repositório
+
+remoto.
+
+Assim, quando terminar de fazer o commit de todas as alterações
+
+localmente, você poderá fazer o push de volta para o repositório
+
+remoto para que todos os outros possam ter acesso a essas alterações também.
+
+O Git pull, por outro lado, é usado para extrair alterações
+
+da ramificação do repositório remoto
+
+para sua ramificação local atual, seja ela qual for.
+
+Se você precisar desfazer algo, o git reset
+
+redefinirá a área de preparação
+
+para corresponder ao commit mais recente
+
+sem afetar o diretório de trabalho.
+
+Você também pode adicionar --hard para redefinir a área de preparação
+
+e o diretório de trabalho para que correspondam ao commit mais recente.
+
+O Git revert é usado para desfazer todas as alterações
+
+de um commit anterior se você mudou de ideia,
+
+causou algum bug sem querer, certo?
+
+E finalmente, bem, não finalmente, mas estamos chegando lá.
+
+Alguns comandos avançados O git stash é usado para armazenar
+
+temporariamente uma alteração que você ainda não está pronto para
+
+confirmar, certo?
+
+Muitas vezes, eu uso isso se houver algum arquivo
+
+temporário que está sendo coletado e que não deveria estar, e eu não quero
+
+confirmá-lo. Você pode usar o stash
+
+para ocultá-lo durante a confirmação
+
+e o git stash pop pode ser usado para restaurar o que você
+
+escondeu anteriormente.
+
+Então, digamos que eu queira armazenar um arquivo temporário
+
+e recuperá-lo quando terminar de fazer o commit,
+
+posso usar o git stash e, quando terminar, usar
+
+o git stash pop para restaurá-lo.
+
+O Git rebase é usado para reaplicar as alterações
+
+de uma ramificação em outra.
+
+Portanto, isso é usado para integrar as alterações
+
+de uma ramificação em outra, às vezes, se você
+
+quiser ir entre as ramificações dessa forma.
+
+E o git cherry-pick, que eu mesmo nunca
+
+usei, serve para aplicar as alterações de um commit específico
+
+ao ramo atual.
+
+Além disso, você pode usar o git blame para ver um histórico
+
+de todas as alterações feitas em um determinado
+
+arquivo e quando, se quiser descobrir por que uma alteração foi
+
+feita e quem a fez.
+
+O Git diff pode ser usado para ver exatamente
+
+o que mudou entre os seus commits, para que você
+
+tenha uma boa ideia do que está verificando primeiro.
+
+O Git fetch é usado para buscar alterações de um repositório remoto
+
+sem mesclá-las.
+
+E a manutenção do git e a recuperação de dados precisam ser concluídas
+
+com essa.
+
+Realmente duvido que o exame vá lhe perguntar sobre
+
+isso, mas só para completar.
+
+O Git fsck é usado para corrigir erros do sistema de arquivos basicamente
+
+com seus repositórios.
+
+O Git gc limpa e otimiza
+
+seu repositório local, coleta de lixo.
+
+O Git reflog registrará quando as refs foram atualizadas
+
+no repositório local.
+
+Portanto, se você precisar recuperar um commit
+
+perdido, essa pode ser uma maneira de localizá-lo.
+
+E esse é o Git em um resumo muito, muito curto e pequeno.
+
+Novamente, se você precisar de mais
+
+profundidade, há cursos completos sobre o Git, mas
+
+eles devem ser apenas uma revisão dos conceitos básicos que
+
+você pode precisar para o exame.
