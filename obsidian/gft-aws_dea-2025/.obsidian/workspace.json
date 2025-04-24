@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Certified Data Engineer/00. CDE Sumario.md",
+                "file": "Certified Data Engineer/Sessão 03 - Armazenamento (Storage).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "00. CDE Sumario"
+              "title": "Sessão 03 - Armazenamento (Storage)"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Certified Data Engineer/00. CDE Sumario.md",
+                "file": "Certified Data Engineer/Sessão 03 - Armazenamento (Storage).md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Links inversos para 00. CDE Sumario"
+              "title": "Links inversos para Sessão 03 - Armazenamento (Storage)"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Certified Data Engineer/00. CDE Sumario.md",
+                "file": "Certified Data Engineer/Sessão 03 - Armazenamento (Storage).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Links de saída para 00. CDE Sumario"
+              "title": "Links de saída para Sessão 03 - Armazenamento (Storage)"
             }
           },
           {
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Certified Data Engineer/00. CDE Sumario.md",
+                "file": "Certified Data Engineer/Sessão 03 - Armazenamento (Storage).md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Sumário de 00. CDE Sumario"
+              "title": "Sumário de Sessão 03 - Armazenamento (Storage)"
             }
           }
         ]
@@ -170,9 +170,9 @@
   },
   "active": "0043e6820503441b",
   "lastOpenFiles": [
-    "Certified Data Engineer/Sessão 03 - Armazenamento (Storage).md",
-    "Certified Data Engineer/00. CDE Sumario.md",
     "Certified Data Engineer/Sessão 02 - Fundamentos da Engenharia de dados.md",
+    "Certified Data Engineer/00. CDE Sumario.md",
+    "Certified Data Engineer/Sessão 03 - Armazenamento (Storage).md",
     "Certified Data Engineer",
     "Bem-vindo.md"
   ]
