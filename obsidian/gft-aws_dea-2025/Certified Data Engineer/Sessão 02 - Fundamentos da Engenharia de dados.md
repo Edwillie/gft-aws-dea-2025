@@ -22,8 +22,8 @@ A categorização dos dados em três tipos principais é essencial para entender
     - **E-mails** (especialmente corpo do e-mail).        
     - **PDFs escaneados**, gravações de chamadas, etc.        
 <div style="page-break-after: always;"></div>
-### 3. *Dados Semiestruturados*
 
+### 3. *Dados Semiestruturados*
 - **Definição:** Dados com alguma organização interna (tags, delimitadores, etc.), mas não em formato relacional tradicional.    
 - **Características:**    
     - Possuem estrutura parcial, normalmente hierárquica.        
@@ -50,6 +50,7 @@ A categorização dos dados em três tipos principais é essencial para entender
 - **OpenSearch** para dados semiestruturados com consultas full-text.    
 - **Tesseract OCR** para extrair texto de PDFs/imagens (transformando não estruturado em estruturado).    
 <div style="page-break-after: always;"></div>
+
 ### *Casos de uso reais:*
 - **Pipeline de logs (semiestruturado)**: leitura de arquivos no S3 → transformação com PySpark → ingestão no Redshift.    
 - **Treinamento de IA (não estruturado)**: extração de áudio/imagem para entrada em modelos de ML.
@@ -74,6 +75,7 @@ Refere-se à **quantidade total de dados** gerados e armazenados. Pode variar de
     - Escolha entre ferramentas como **Kinesis Data Streams (tempo real)** vs **Kinesis Firehose (quase tempo real)**.        
     - Considerações sobre **latência**, **ordenação de eventos**, e **consistência**.        
 <div style="page-break-after: always;"></div>
+
 #### 3. *Variedade*
 Diz respeito aos **diferentes tipos e formatos de dados** com os quais você trabalha.
 - **Tipos de dados:**    
@@ -150,6 +152,7 @@ Concentre-se em:
 - **Qualidade e observabilidade**: Ter pipelines de validação, alertas e monitoramento.    
 - **Evolução do schema**: Principal desafio nos DLs; usar formatos como Iceberg ou Hudi ajuda bastante.
 <div style="page-break-after: always;"></div>
+
 # O que é um Data Mesh
 ## 📌 O que é Data Mesh?
 O **Data Mesh** (ou "malha de dados") é uma **abordagem descentralizada** à arquitetura e governança de dados, que propõe tratar os dados como **produtos** e distribui a responsabilidade pela governança e disponibilização de dados para os **times de domínio** (_times de negócio_) que melhor conhecem esses dados (ex: vendas, financeiro, logística).
@@ -215,6 +218,7 @@ Um **pipeline de dados** é um conjunto de etapas organizadas para **movimentar,
 2. **Transformação** para adequação, limpeza, enriquecimento;    
 3. **Carga** em destinos otimizados para análise ou persistência.    
 <div style="page-break-after: always;"></div>
+
 ## 🔧 ETL e ELT: Conceitos Fundamentais
 O conteúdo do arquivo fornecido detalha os dois principais padrões:
 ### 📦 ETL (Extract, Transform, Load)
@@ -240,6 +244,7 @@ O conteúdo do arquivo fornecido detalha os dois principais padrões:
     - **Política de retries** (caso de falha em API);        
     - **Velocidade adequada** (streaming, near real-time ou batch).        
 <div style="page-break-after: always;"></div>
+
 ### 🔄 Transformação
 Inclui:
 - **Limpeza**: remoção de nulos, correção de erros;    
@@ -300,6 +305,7 @@ Um *pipeline de dados bem projetado* é fundamental para sistemas analíticos mo
 - **Prós:** Suporta estruturas aninhadas e esquema flexível.    
 - **Contras:** Menos eficiente que formatos binários.    
 <div style="page-break-after: always;"></div>
+
 ### 3. *Avro*
 - **Formato:** Binário com schema embutido.    
 - **Prós:** Eficiente, ideal para streaming e serialização de dados.    
@@ -325,6 +331,7 @@ Um *pipeline de dados bem projetado* é fundamental para sistemas analíticos mo
 - **Schema evolution:** JSON e Avro são mais flexíveis.    
 - **Particionamento:** Essencial para desempenho em leitura no S3 (Athena, EMR).
 <div style="page-break-after: always;"></div>
+
 # Modelagem de Dados, Linhagem de Dados e Evolução de Modelos (Schema Evolution)
 ## 📘 Modelagem de Dados (Data Modeling)
 ### *Pontos abordados no material:*
@@ -358,6 +365,7 @@ Um *pipeline de dados bem projetado* é fundamental para sistemas analíticos mo
     - **Spline Agent** + **Apache Spark** + **AWS Glue**.        
     - Armazenamento de linhagem no **Amazon Neptune (grafo)**.        
 <div style="page-break-after: always;"></div>
+
 ### *Lacunas e complementos importantes:*
 - **Tipos de linhagem**:    
     - **Linhagem de dados técnica**: descreve jobs, tabelas, scripts, colunas e tipos.        
@@ -394,6 +402,7 @@ Um *pipeline de dados bem projetado* é fundamental para sistemas analíticos mo
     - Glue permite configurar **modo de compatibilidade**.        
     - Integrações com **Kafka + Schema Registry (Confluent ou AWS)**.        
 <div style="page-break-after: always;"></div>
+
 ## 🧠 Dicas para a prova
 - **Atenção a perguntas de compatibilidade de esquemas**.    
 - Entender **diferenças entre modelagem OLTP x OLAP**.    
@@ -422,6 +431,7 @@ Um *pipeline de dados bem projetado* é fundamental para sistemas analíticos mo
     - **Taxa de compressão** (quanto reduz).        
     - **Tempo de descompressão** (carga de CPU).        
 <div style="page-break-after: always;"></div>
+
 ### 4. **Compactação Colunar**
 - Muito eficiente com dados armazenados em formato colunar (ex: **Parquet**, **ORC**).    
 - Vantagem:    
@@ -444,6 +454,7 @@ Um *pipeline de dados bem projetado* é fundamental para sistemas analíticos mo
 #### 🔹 _Tuning de Parâmetros_
 - Parâmetros como número de conexões simultâneas, buffers, cache de disco e paralelismo influenciam no desempenho global do banco.
 <div style="page-break-after: always;"></div>
+
 # Técnicas de Amostragem de dados
 ## 🎯 Objetivo da Amostragem
 Reduzir o volume de dados a ser processado **mantendo a representatividade** para análise. Ideal quando:
@@ -468,6 +479,7 @@ Reduzir o volume de dados a ser processado **mantendo a representatividade** par
 - **Amostragem por conveniência:** baseada na **facilidade de acesso** aos dados.    
 - **Amostragem por julgamento (ou intencional):** baseada no **conhecimento prévio** do analista sobre o que deve ser incluído.    
 <div style="page-break-after: always;"></div>
+
 ## 🧠 *Conceitos Complementares Relevantes para Certificação*
 ### 🟧 Técnicas Adicionais:
 - **Bootstrap Sampling (reamostragem com reposição):** usada para estimativas estatísticas robustas;    
@@ -494,6 +506,7 @@ Data Skew ocorre quando há **distribuição desigual de dados entre partições
 4. **Distorção temporal**:    
     - Ex: partições por ano podem gerar partições de tamanhos muito diferentes (anos recentes com muito mais dados).        
 <div style="page-break-after: always;"></div>
+
 ## 📉 *Impactos*
 - Subutilização de nós em um cluster distribuído.    
 - Atrasos no processamento por sobrecarga em poucas partições.    
@@ -542,6 +555,7 @@ Perfil de dados e validação dizem respeito à **qualidade dos dados** e sua **
 - **Imputação** com valores padrão, média ou mediana.    
 - Avaliar se o **dado ausente é crítico ou tolerável**.    
 <div style="page-break-after: always;"></div>
+
 ### 📌 **2. Consistência de Dados**
 - Dados devem manter **formato e representação uniformes** entre diferentes tabelas/fontes.    
 - Exemplo clássico:    
@@ -578,6 +592,7 @@ Perfil de dados e validação dizem respeito à **qualidade dos dados** e sua **
 🛠️ **Ferramentas úteis**:
 - AWS Glue DataBrew, Great Expectations, Deequ, Pandera, PyDeequ.    
 <div style="page-break-after: always;"></div>
+
 ### 🧠 **Boas Práticas**
 - Automatizar validações com pipelines de dados (ETL/ELT).    
 - Integrar verificações de qualidade com alertas e dashboards.    
